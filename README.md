@@ -28,19 +28,40 @@
 
 <br>
 
-<!-- SOCIAL LINKS WITH GRADIENT COLORS -->
-<a href="https://github.com/hamza01055">
-  <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white&color=FF006E" alt="GitHub">
+<!-- SOCIAL LINKS WITH GRADIENT COLORS - PROMINENT DISPLAY -->
+<div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 25px; border-radius: 15px; margin: 20px 0;">
+
+### 🌐 CONNECT WITH ME
+
+<a href="https://github.com/hamza01055" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/GitHub-Follow%20Me-000?style=for-the-badge&logo=github&logoColor=white&color=FF006E" alt="GitHub" style="margin: 5px;">
 </a>
-<a href="https://linkedin.com/in/hamza-shahzad">
-  <img src="https://img.shields.io/badge/LinkedIn-000?style=for-the-badge&logo=linkedin&logoColor=white&color=8338EC" alt="LinkedIn">
+<a href="https://linkedin.com/in/hamza-shahzad" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/LinkedIn-Connect-000?style=for-the-badge&logo=linkedin&logoColor=white&color=8338EC" alt="LinkedIn" style="margin: 5px;">
 </a>
-<a href="mailto:hamza.shahzad@example.com">
-  <img src="https://img.shields.io/badge/Email-000?style=for-the-badge&logo=gmail&logoColor=white&color=00D9FF" alt="Email">
+<a href="mailto:hamza.shahzad@example.com" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/Email-Contact%20Me-000?style=for-the-badge&logo=gmail&logoColor=white&color=00D9FF" alt="Email" style="margin: 5px;">
 </a>
-<a href="https://twitter.com/">
-  <img src="https://img.shields.io/badge/Twitter-000?style=for-the-badge&logo=twitter&logoColor=white&color=3A86FF" alt="Twitter">
+<a href="https://twitter.com/" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/Twitter-Follow-000?style=for-the-badge&logo=twitter&logoColor=white&color=3A86FF" alt="Twitter" style="margin: 5px;">
 </a>
+
+<br>
+
+<a href="https://medium.com/" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/Medium-Read%20Articles-000?style=for-the-badge&logo=medium&logoColor=white&color=FFB703" alt="Medium" style="margin: 5px;">
+</a>
+<a href="https://youtube.com/" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/YouTube-Subscribe-000?style=for-the-badge&logo=youtube&logoColor=white&color=FB5607" alt="YouTube" style="margin: 5px;">
+</a>
+<a href="https://researchgate.net/" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/ResearchGate-Follow-000?style=for-the-badge&logo=researchgate&logoColor=white&color=06D6A0" alt="ResearchGate" style="margin: 5px;">
+</a>
+<a href="https://kaggle.com/" style="text-decoration: none;">
+  <img src="https://img.shields.io/badge/Kaggle-Profile-000?style=for-the-badge&logo=kaggle&logoColor=white&color=118AB2" alt="Kaggle" style="margin: 5px;">
+</a>
+
+</div>
 
 </div>
 
@@ -120,6 +141,10 @@ Exploring the frontiers of artificial intelligence
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Status-✅%20Verified%20Expert-3A86FF?style=for-the-badge" alt="Status">
+
+<br><br>
+
 <table style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 20px; border-radius: 15px;">
 <tr style="color: white;">
 <td align="center" width="33%">
@@ -193,6 +218,10 @@ assistants and vision-language models.
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Status-🚀%20Active%20Research-FF006E?style=for-the-badge" alt="Status">
+
+<br><br>
+
 ### 🎨 AI RESEARCH SPECTRUM
 
 <table>
@@ -237,6 +266,10 @@ assistants and vision-language models.
 ## ⚡ TECH STACK - COMPLETE ARSENAL
 
 <div align="center">
+
+<img src="https://img.shields.io/badge/Status-Fully%20Mastered-8338EC?style=for-the-badge" alt="Status">
+
+<br><br>
 
 ### 🐍 PROGRAMMING LANGUAGES
 
@@ -336,9 +369,15 @@ assistants and vision-language models.
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Portfolio-5%20Major%20Projects-3A86FF?style=for-the-badge" alt="Projects">
+
+<br><br>
+
 ### 1. 🏙️ SMART CITY AI
 
 <div style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 20px; border-radius: 15px; color: white;">
+
+<img src="https://img.shields.io/badge/Status-✅%20Active-00D9FF?style=flat-square" alt="Active">
 
 ![Badge](https://img.shields.io/badge/YOLOv8-00BFFF?style=flat-square)
 ![Badge](https://img.shields.io/badge/Computer%20Vision-FF006E?style=flat-square)
@@ -364,6 +403,8 @@ assistants and vision-language models.
 
 <div style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 20px; border-radius: 15px; color: white;">
 
+<img src="https://img.shields.io/badge/Status-✅%20Active-00D9FF?style=flat-square" alt="Active">
+
 ![Badge](https://img.shields.io/badge/NLP-00D9FF?style=flat-square)
 ![Badge](https://img.shields.io/badge/Machine%20Learning-FF6F00?style=flat-square)
 ![Badge](https://img.shields.io/badge/Django-092E20?style=flat-square)
@@ -385,6 +426,8 @@ assistants and vision-language models.
 ### 3. 📚 RAG DOCUMENT ASSISTANT
 
 <div style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 20px; border-radius: 15px; color: white;">
+
+<img src="https://img.shields.io/badge/Status-✅%20Active-FF006E?style=flat-square" alt="Active">
 
 ![Badge](https://img.shields.io/badge/LangChain-FF006E?style=flat-square)
 ![Badge](https://img.shields.io/badge/FAISS-8338EC?style=flat-square)
@@ -408,6 +451,8 @@ assistants and vision-language models.
 
 <div style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 20px; border-radius: 15px; color: white;">
 
+<img src="https://img.shields.io/badge/Status-⏰%20Coming%20Soon-FFB703?style=flat-square" alt="Coming Soon">
+
 ![Badge](https://img.shields.io/badge/Vision%20Language%20Models-FF006E?style=flat-square)
 ![Badge](https://img.shields.io/badge/Computer%20Vision-00D9FF?style=flat-square)
 ![Badge](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square)
@@ -420,7 +465,7 @@ assistants and vision-language models.
 - 🔄 Production-ready API endpoints
 - 🔄 Real-world application deployment
 
-**Status: 🚀 Coming Soon**
+**Launching: Q4 2024**
 
 </div>
 
@@ -429,6 +474,8 @@ assistants and vision-language models.
 ### 5. 🚁 Autonomous Drone AI
 
 <div style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 20px; border-radius: 15px; color: white;">
+
+<img src="https://img.shields.io/badge/Status-⏰%20Coming%20Soon-FF006E?style=flat-square" alt="Coming Soon">
 
 ![Badge](https://img.shields.io/badge/Robotics-FF006E?style=flat-square)
 ![Badge](https://img.shields.io/badge/Edge%20AI-00D9FF?style=flat-square)
@@ -442,7 +489,7 @@ assistants and vision-language models.
 - 🚁 Path planning and collision avoidance
 - 🚁 Computer vision-based autonomous control
 
-**Status: 🚀 Coming Soon**
+**Launching: Q4 2024**
 
 </div>
 
@@ -455,6 +502,10 @@ assistants and vision-language models.
 ## 📊 GITHUB STATISTICS
 
 <div align="center">
+
+<img src="https://img.shields.io/badge/Stats-Live%20Updated-3A86FF?style=for-the-badge" alt="Live Stats">
+
+<br><br>
 
 [![Hamza's GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamza01055&show_icons=true&theme=tokyonight&bg_color=0d1117&title_color=1e90ff&icon_color=00D9FF&text_color=ffffff&border_color=1e90ff&border_radius=10&count_private=true&include_all_commits=true)](https://github.com/hamza01055)
 
@@ -476,6 +527,10 @@ assistants and vision-language models.
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Achievements-Unlocked-FF006E?style=for-the-badge" alt="Achievements">
+
+<br><br>
+
 [![Hamza's Trophies](https://github-profile-trophy.vercel.app/?username=hamza01055&theme=tokyonight&no-bg=false&bg_color=0d1117&row=2&column=3)](https://github.com/hamza01055)
 
 </div>
@@ -488,6 +543,10 @@ assistants and vision-language models.
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Activity-Consistent%20Contributions-8338EC?style=for-the-badge" alt="Contributions">
+
+<br><br>
+
 [![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamza01055&theme=tokyo-night&bg_color=0d1117&color=1e90ff&line=00D9FF&point=1e90ff)](https://github.com/hamza01055)
 
 </div>
@@ -499,6 +558,10 @@ assistants and vision-language models.
 ## 🎖️ ACHIEVEMENTS
 
 <div align="center">
+
+<img src="https://img.shields.io/badge/Recognition-Milestones%20Achieved-00D9FF?style=for-the-badge" alt="Achievements">
+
+<br><br>
 
 <table>
 <tr style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); color: white;">
@@ -543,6 +606,10 @@ assistants and vision-language models.
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Research-🚀%20Actively%20Exploring-FFB703?style=for-the-badge" alt="Active Research">
+
+<br><br>
+
 <div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 30px; border-radius: 15px; color: white;">
 
 ```
@@ -580,6 +647,10 @@ assistants and vision-language models.
 
 <div align="center">
 
+<img src="https://img.shields.io/badge/Timeline-Strategic%20Planning-3A86FF?style=for-the-badge" alt="Roadmap">
+
+<br><br>
+
 <div style="background: linear-gradient(135deg, #00D9FF 0%, #1e90ff 50%, #FF006E 100%); padding: 30px; border-radius: 15px; color: white;">
 
 ```
@@ -611,6 +682,10 @@ Q4 2024
 ## 🌍 OPEN SOURCE GOALS
 
 <div align="center">
+
+<img src="https://img.shields.io/badge/Contribution-Community%20Driven-06D6A0?style=for-the-badge" alt="Open Source">
+
+<br><br>
 
 <table>
 <tr style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); color: white;">
@@ -649,6 +724,10 @@ Q4 2024
 ## 📬 CONNECT WITH ME
 
 <div align="center">
+
+<img src="https://img.shields.io/badge/Availability-Always%20Open%20to%20Connect-FF006E?style=for-the-badge" alt="Connect">
+
+<br><br>
 
 ### Let's collaborate and build the future of AI together! 🚀
 
