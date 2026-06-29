@@ -1,324 +1,722 @@
 <div align="center">
 
-<!-- 3D Animated Header -->
-<img width="100%" src="https://capsule-render.vercel.app/api?type=venom&color=0:0d1117,30:0a1628,60:0d2137,100:0d47a1&height=200&section=header&text=Hamza%20Shahzad&fontSize=70&fontColor=58a6ff&fontAlignY=55&animation=fadeIn&desc=AI%2FML%20Engineer%20%E2%80%A2%20Computer%20Vision%20Specialist%20%E2%80%A2%20Python%20Developer&descAlignY=78&descSize=17&descColor=79c0ff&stroke=1a4a8a&strokeWidth=2"/>
+![banner](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,25:1e90ff,50:FF006E,75:8338EC,100:3A86FF&height=350&section=header&text=Hamza%20Shahzad&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=38)
 
-<br/>
+<br>
 
-<!-- Badge row -->
-<a href="https://www.linkedin.com/in/hamzashahzad-667602355">
-  <img src="https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=0d1117"/>
-</a>
-<a href="mailto:hamzashahzad78374@gmail.com">
-  <img src="https://img.shields.io/badge/Gmail-Email%20Me-EA4335?style=for-the-badge&logo=gmail&logoColor=white&labelColor=0d1117"/>
-</a>
+<!-- VISITOR COUNTER -->
+<div>
+  <img src="https://komarev.com/ghpvc/?username=hamza01055&color=FF006E&style=for-the-badge&label=PROFILE%20VISITORS" alt="Visitor Count">
+</div>
+
+<br>
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=4000&pause=500&color=FF006E&center=true&vCenter=true&width=900&lines=🚀+Artificial+Intelligence+Research+Engineer;💻+Computer+Vision+%26+LLMs+Specialist;🤖+AI+Agents+%26+Autonomous+Systems;🎓+BS+in+Artificial+Intelligence;🔬+Building+The+Future+Of+AI)](https://github.com/hamza01055)
+
+<br>
+
+```
+╔════════════════════════════════════════════════════════════════╗
+║                                                                ║
+║              🌟 AI RESEARCH ENGINEER 🌟                       ║
+║         Transforming Research into Production Systems          ║
+║                                                                ║
+║          Computer Vision • LLMs • Robotics • Edge AI           ║
+║                                                                ║
+╚════════════════════════════════════════════════════════════════╝
+```
+
+<br>
+
+<!-- SOCIAL LINKS WITH GRADIENT COLORS -->
 <a href="https://github.com/hamza01055">
-  <img src="https://img.shields.io/badge/GitHub-hamza01055-181717?style=for-the-badge&logo=github&logoColor=white&labelColor=0d1117"/>
+  <img src="https://img.shields.io/badge/GitHub-000?style=for-the-badge&logo=github&logoColor=white&color=FF006E" alt="GitHub">
 </a>
-<a href="https://upwork.com/freelancers/~0188e43144433479ac">
-  <img src="https://img.shields.io/badge/Upwork-Hire%20Me-6FDA44?style=for-the-badge&logo=upwork&logoColor=white&labelColor=0d1117"/>
+<a href="https://linkedin.com/in/hamza-shahzad">
+  <img src="https://img.shields.io/badge/LinkedIn-000?style=for-the-badge&logo=linkedin&logoColor=white&color=8338EC" alt="LinkedIn">
 </a>
-<img src="https://komarev.com/ghpvc/?username=Hamza01055&style=for-the-badge&color=0d47a1&label=PROFILE+VIEWS&labelColor=0d1117"/>
-
-<br/><br/>
-
-<!-- Typing animation -->
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2800&pause=700&color=58A6FF&center=true&vCenter=true&multiline=false&repeat=true&width=680&height=55&lines=🤖+AI%2FML+Engineer+%7C+Computer+Vision+Specialist;👁+YOLOv8+%7C+OpenCV+%7C+Transfer+Learning;🧠+RAG+Pipelines+%7C+LangChain+%7C+HuggingFace;⚡+FastAPI+%7C+Django+%7C+Docker+%7C+PyTorch;🌍+Open+to+Remote+%26+Freelance+Worldwide" alt="Typing SVG"/>
-
-<br/>
-
-<!-- Snake animation -->
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/Hamza01055/Hamza01055/output/github-contribution-grid-snake-dark.svg"/>
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/Hamza01055/Hamza01055/output/github-contribution-grid-snake.svg"/>
-  <img alt="github-snake" src="https://raw.githubusercontent.com/Hamza01055/Hamza01055/output/github-contribution-grid-snake-dark.svg"/>
-</picture>
+<a href="mailto:hamza.shahzad@example.com">
+  <img src="https://img.shields.io/badge/Email-000?style=for-the-badge&logo=gmail&logoColor=white&color=00D9FF" alt="Email">
+</a>
+<a href="https://twitter.com/">
+  <img src="https://img.shields.io/badge/Twitter-000?style=for-the-badge&logo=twitter&logoColor=white&color=3A86FF" alt="Twitter">
+</a>
 
 </div>
 
 ---
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
-## <img src="https://media2.giphy.com/media/QssGEmpkyEOhBCb7e1/giphy.gif?cid=ecf05e47a0n3gi1bfqntqmob8g9aid1oyj2wr3ds3mg700bl&rid=giphy.gif" width="30px"> About Me
-
-```python
-class HamzaShahzad:
-    def __init__(self):
-        self.name        = "Hamza Shahzad"
-        self.role        = ["AI/ML Engineer", "Computer Vision Specialist", "Python Developer"]
-        self.education   = "BS Artificial Intelligence"
-        self.university  = "Islamia University of Bahawalpur, Pakistan"
-        self.graduating  = "June 2026"
-        self.location    = "Pakistan 🇵🇰"
-        self.phone       = "+92 320-7074141"
-        self.email       = "hamzashahzad78374@gmail.com"
-        self.upwork      = "upwork.com/freelancers/~0188e43144433479ac"
-        self.expertise   = [
-            "Computer Vision (YOLOv8)", "NLP", "Generative AI",
-            "RAG Pipelines", "PyTorch", "TensorFlow", "FastAPI", "Docker"
-        ]
-        self.work_mode   = "Remote (worldwide) | Onsite (Pakistan) | Hybrid"
-        self.status      = "Immediately Available — Freelance & Full-time"
-        self.fun_fact    = "I train models harder than I train myself 😄"
-
-    def say_hi(self):
-        print("Driven AI/ML Engineer with hands-on expertise in CV, NLP & Generative AI.")
-        print("Let's build something intelligent together 🚀")
-
-me = HamzaShahzad()
-me.say_hi()
-```
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
----
-
-## <img src="https://media.giphy.com/media/iY8CRBdQXODJSCERIr/giphy.gif" width="30px"> Tech Stack & Skills
+## 🎯 LANDING PAGE - WELCOME TO MY AI UNIVERSE
 
 <div align="center">
 
-### 💻 Languages
-<p>
-<img src="https://img.shields.io/badge/Python-Advanced-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
-<img src="https://img.shields.io/badge/SQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"/>
-<img src="https://img.shields.io/badge/C++-00599C?style=for-the-badge&logo=cplusplus&logoColor=white"/>
-<img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white"/>
-</p>
-
-### 🤖 ML / DL Frameworks
-<p>
-<img src="https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white"/>
-<img src="https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white"/>
-<img src="https://img.shields.io/badge/Scikit--learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white"/>
-<img src="https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white"/>
-<img src="https://img.shields.io/badge/YOLOv8-00FFFF?style=for-the-badge&logoColor=black"/>
-</p>
-
-### 👁 Computer Vision
-<p>
-<img src="https://img.shields.io/badge/YOLOv8-00FFFF?style=for-the-badge&logoColor=black"/>
-<img src="https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white"/>
-<img src="https://img.shields.io/badge/CNN-FF6B6B?style=for-the-badge&logoColor=white"/>
-<img src="https://img.shields.io/badge/Transfer%20Learning%20(ResNet%2FVGG)-8B5CF6?style=for-the-badge&logoColor=white"/>
-<img src="https://img.shields.io/badge/Roboflow-6C3483?style=for-the-badge&logoColor=white"/>
-</p>
-
-### 🧠 NLP & Generative AI
-<p>
-<img src="https://img.shields.io/badge/LangChain-1C3C3C?style=for-the-badge&logo=langchain&logoColor=white"/>
-<img src="https://img.shields.io/badge/RAG%20Pipelines-6C3483?style=for-the-badge&logoColor=white"/>
-<img src="https://img.shields.io/badge/FAISS-009688?style=for-the-badge&logoColor=white"/>
-<img src="https://img.shields.io/badge/HuggingFace-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black"/>
-<img src="https://img.shields.io/badge/LLMs-0d47a1?style=for-the-badge&logoColor=white"/>
-</p>
-
-### 🌐 Deployment & APIs
-<p>
-<img src="https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white"/>
-<img src="https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white"/>
-<img src="https://img.shields.io/badge/REST%20APIs-FF5722?style=for-the-badge&logoColor=white"/>
-<img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"/>
-</p>
-
-### 📊 Data & Tools
-<p>
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
-<img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logoColor=white"/>
-<img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white"/>
-<img src="https://img.shields.io/badge/Google%20Colab-F9AB00?style=for-the-badge&logo=googlecolab&logoColor=black"/>
-<img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white"/>
-</p>
-
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
----
-
-## 💼 Work Experience
-
-### Freelance AI/ML Engineer — Remote · Upwork *(Jan 2025 – Present)*
-
-- 🎯 Independently designed and delivered multiple **production-ready AI/ML solutions** from requirements through deployment
-- 👁 Developed **Computer Vision pipelines** using YOLOv8m for real-time multi-class object detection (potholes, garbage, streetlights) — trained on **900+ annotated images** achieving **80% Precision, 70% Recall**
-- 📄 Built full-stack **NLP Resume Screening** tool: TF-IDF + cosine similarity matching wrapped in Django web interface for HR teams to auto-rank candidates
-- 🔗 Engineered **RAG Pipeline**: FAISS vector store + sentence-transformer embeddings deployed as FastAPI microservice for document Q&A
-- 🛠 Stack: `Python` `FastAPI` `Django` `Docker` `PyTorch` `Scikit-learn` `LangChain` `HuggingFace`
-
-> 🔗 **Upwork Profile:** [upwork.com/freelancers/~0188e43144433479ac](https://upwork.com/freelancers/~0188e43144433479ac)
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
----
-
-## 🚀 Featured Projects
-
 <table>
 <tr>
-<td width="50%" valign="top">
+<td width="50%">
 
-### 🏙️ Smart City Issue Detection *(FYP)*
-> **Status: Production Ready** · [GitHub](https://github.com/hamza01055/fyp)
+### 🚀 INNOVATOR
+Building cutting-edge AI systems that solve real-world problems
 
-Full-stack AI system detecting urban infrastructure issues (potholes, garbage, broken streetlights) in real-time using **YOLOv8m**. Collected & annotated **900+ images** across daylight/night conditions with augmentation (flip, rotation, brightness).
-
-**Results:** Precision **0.80** · Recall **0.70** · mAP50 **0.78** · Trained on Google Colab T4 GPU for 100 epochs
-
-**Architecture:** Modular backend → FastAPI REST API → Django frontend → Docker Compose
-
-`YOLOv8` `PyTorch` `FastAPI` `Django` `Docker` `OpenCV` `Roboflow`
+**Specialization:**
+- Computer Vision
+- Large Language Models
+- Autonomous Systems
+- AI Research
 
 </td>
-<td width="50%" valign="top">
+<td width="50%">
 
-### 📄 Resume Screening AI *(NLP Pipeline)*
-> **Status: Deployable** · [GitHub](https://github.com/hamza01055/nlp-resume-analyzer)
+### 🔬 RESEARCHER
+Exploring the frontiers of artificial intelligence
 
-End-to-end NLP pipeline: resume parsing → skill extraction → job description matching via **TF-IDF + cosine similarity**. Django web interface lets recruiters upload resumes and instantly rank candidates.
-
-Practical tool for HR automation and recruitment workflows.
-
-`Python` `NLP (TF-IDF)` `Scikit-learn` `Django`
-
-</td>
-</tr>
-<tr>
-<td width="50%" valign="top">
-
-### 🧠 Generative AI Document Q&A *(RAG Pipeline)*
-> **Status: Deployable** · 2026
-
-End-to-end RAG system: ingest custom documents → vector embedding (sentence-transformers) → **FAISS store** → LLM Q&A. Exposed as FastAPI microservice, containerized with Docker. Production-ready for knowledge base and chatbot applications.
-
-`LangChain` `FAISS` `HuggingFace` `FastAPI` `Docker`
-
-</td>
-<td width="50%" valign="top">
-
-### 📊 Sentiment Analysis (NLP)
-
-LSTM-based classification on product reviews achieving **88%+ test accuracy**. Full evaluation pipeline with class-level reporting.
-
-Also includes:
-- **Real-Time Object Detection** — YOLOv8 fine-tuned on custom dataset, deployed in Django
-- **Image Classification** — CNN + Transfer Learning (ResNet, VGG) with hyperparameter tuning
-
-`LSTM` `PyTorch` `YOLOv8` `ResNet` `VGG`
+**Focus Areas:**
+- Vision-Language Models
+- Multi-Agent Systems
+- Robotics & Drones
+- Medical AI
 
 </td>
 </tr>
 </table>
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+<br>
 
----
+### 📊 QUICK STATS
 
-## 🔭 Upcoming Projects — Mission Control
-
-> **20 frontier-level AI systems** currently in R&D. Each one targets a domain where AI will reshape the world. Follow me to get notified when these go live — full source code, documentation, and demos included.
-
-<div align="center">
-
-| 🚀 Project | 🛠 Technologies |
-|:---|:---|
-| **AI Research Assistant** | Python · RAG · LLM · LangGraph |
-| **Autonomous Drone Navigation** | OpenCV · YOLO · MAVSDK · RL |
-| **Multi-Agent AI System** | LangGraph · FastAPI · Redis |
-| **AI Operating System Assistant** | Python · LLMs · Voice AI |
-| **Self-Driving Car Simulator** | CARLA · PyTorch · OpenCV |
-| **AI Cybersecurity Analyst** | ML · Network Analysis · NLP |
-| **AI Medical Diagnosis Platform** | CNN · Vision Transformers · LLM |
-| **AI Scientist** | LLM · RAG · Research Automation |
-| **Smart Manufacturing AI** | Computer Vision · IoT |
-| **AI Financial Trading System** | Time Series · Reinforcement Learning |
-| **Digital Twin Platform** | Python · IoT · Simulation |
-| **Autonomous Robot Brain** | ROS 2 · OpenCV · SLAM |
-| **AI Video Intelligence** | Video Understanding · Transformers |
-| **AI Code Generation Platform** | LLM · AST Analysis |
-| **AI Agriculture Platform** | CV · Weather Data · ML |
-| **AI Traffic Management System** | YOLO · Deep Learning |
-| **Smart Warehouse Robot** | Robotics · Path Planning |
-| **AI Disaster Response System** | Satellite Imaging · CV |
-| **Edge AI Camera** | Raspberry Pi · TensorFlow Lite |
-| **AI Defense Surveillance System** | Multi-Camera Tracking · Sensor Fusion |
+<table>
+<tr>
+<td align="center">
+  <h3>🎓 Education</h3>
+  <p><strong>BS in AI</strong></p>
+  <small>Islamia University of Bahawalpur</small>
+</td>
+<td align="center">
+  <h3>🌍 Location</h3>
+  <p><strong>Pakistan</strong></p>
+  <small>🇵🇰 Faisalabad</small>
+</td>
+<td align="center">
+  <h3>💻 Projects</h3>
+  <p><strong>5+ Active</strong></p>
+  <small>And Growing Daily</small>
+</td>
+<td align="center">
+  <h3>🔧 Languages</h3>
+  <p><strong>5+</strong></p>
+  <small>Python • C++ • Java • JS • SQL</small>
+</td>
+</tr>
+</table>
 
 </div>
 
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
+<br>
+
+<br>
 
 ---
 
-## 📊 GitHub Stats
+## 🎯 AI DASHBOARD - PERFORMANCE METRICS
 
 <div align="center">
 
-<img width="49%" src="https://github-readme-stats.vercel.app/api?username=Hamza01055&show_icons=true&theme=github_dark&hide_border=true&count_private=true&include_all_commits=true&title_color=58a6ff&icon_color=3fb950&text_color=c9d1d9&bg_color=0d1117"/>
-<img width="49%" src="https://streak-stats.demolab.com?user=Hamza01055&theme=github-dark-blue&hide_border=true&background=0d1117&ring=58a6ff&fire=3fb950&currStreakLabel=58a6ff&sideLabels=79c0ff"/>
+<table style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 20px; border-radius: 15px;">
+<tr style="color: white;">
+<td align="center" width="33%">
+  <h3>⚡ Specialization</h3>
+  <p><strong>Computer Vision</strong></p>
+  <p>LLMs • Robotics</p>
+</td>
+<td align="center" width="33%">
+  <h3>🏆 Education</h3>
+  <p><strong>BS in AI</strong></p>
+  <p>Islamia University</p>
+</td>
+<td align="center" width="33%">
+  <h3>🌍 Location</h3>
+  <p><strong>Pakistan</strong></p>
+  <p>Bahawalpur 🇵🇰</p>
+</td>
+</tr>
+</table>
 
-<br/>
+<br>
 
-<img width="40%" src="https://github-readme-stats.vercel.app/api/top-langs/?username=Hamza01055&layout=compact&theme=github_dark&hide_border=true&bg_color=0d1117&title_color=58a6ff&text_color=c9d1d9&langs_count=8"/>
+<table style="background: linear-gradient(135deg, #00D9FF 0%, #1e90ff 50%, #FF006E 100%); padding: 20px; border-radius: 15px;">
+<tr style="color: white;">
+<td align="center" width="33%">
+  <h3>💻 Status</h3>
+  <p><strong>Active Research</strong></p>
+  <p>AI Development</p>
+</td>
+<td align="center" width="33%">
+  <h3>🔬 Focus</h3>
+  <p><strong>Vision & LLMs</strong></p>
+  <p>Autonomous Systems</p>
+</td>
+<td align="center" width="33%">
+  <h3>🚀 Mission</h3>
+  <p><strong>Building Future AI</strong></p>
+  <p>Production Systems</p>
+</td>
+</tr>
+</table>
 
 </div>
 
----
-
-## 🏆 GitHub Trophies
-
-<div align="center">
-<img src="https://github-profile-trophy.vercel.app/?username=Hamza01055&theme=darkhub&no-frame=true&no-bg=true&margin-w=8&column=7"/>
-</div>
+<br>
 
 ---
 
-## 📈 Contribution Activity
-
-<div align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Hamza01055&bg_color=0d1117&color=58a6ff&line=0d47a1&point=58a6ff&area=true&area_color=0d2137&hide_border=true&custom_title=Hamza's%20Contribution%20Graph"/>
-</div>
-
-<img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
-
----
-
-## 🎓 Education
-
-**BS Artificial Intelligence** — *Islamia University of Bahawalpur, Pakistan* · Expected June 2026
-
-**Relevant Coursework:** Machine Learning · Deep Learning · Computer Vision · NLP · Data Structures & Algorithms · Database Systems · Software Engineering
-
----
-
-## 🌐 Connect With Me
+## 👤 ABOUT ME
 
 <div align="center">
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Hamza%20Shahzad-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/hamzashahzad-667602355)
-[![Gmail](https://img.shields.io/badge/Gmail-hamzashahzad78374@gmail.com-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:hamzashahzad78374@gmail.com)
-[![Upwork](https://img.shields.io/badge/Upwork-Hire%20Me-6FDA44?style=for-the-badge&logo=upwork&logoColor=white)](https://upwork.com/freelancers/~0188e43144433479ac)
-[![GitHub](https://img.shields.io/badge/GitHub-hamza01055-181717?style=for-the-badge&logo=github&logoColor=white)](https://github.com/hamza01055)
-[![WhatsApp](https://img.shields.io/badge/WhatsApp-%2B92%20320%207074141-25D366?style=for-the-badge&logo=whatsapp&logoColor=white)](https://wa.me/923207074141)
-[![Instagram](https://img.shields.io/badge/Instagram-@hamm__xa-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/hamm_xa)
+```
+As an Artificial Intelligence Research Engineer, I specialize in 
+translating cutting-edge AI research into scalable, production-ready 
+systems. My focus lies in Computer Vision, Large Language Models, 
+and Autonomous Systems.
+
+I'm passionate about building intelligent systems that solve 
+real-world problems—from autonomous drones to RAG-based AI 
+assistants and vision-language models.
+```
 
 </div>
 
+<br>
+
 ---
+
+## 🔬 RESEARCH INTERESTS - WHERE INNOVATION HAPPENS
 
 <div align="center">
 
-### 💡 Philosophy
+### 🎨 AI RESEARCH SPECTRUM
 
-> *"I don't just build AI models — I architect intelligent systems that perceive, reason, and act."*
->
-> *Driven AI/ML Engineer with hands-on expertise in Computer Vision, NLP, and Generative AI.*
-> *Seeking AI/ML Engineer or Data Scientist roles — Remote, Onsite (Pakistan), or Hybrid.*
+<table>
+<tr>
+<td align="center" style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 15px; border-radius: 10px; color: white;">
+  <h3>👁️ COMPUTER VISION</h3>
+  <p>YOLOv8 • Image Classification</p>
+  <p>Object Detection • Scene Understanding</p>
+</td>
+<td align="center" style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 15px; border-radius: 10px; color: white;">
+  <h3>🧠 AI & NLP</h3>
+  <p>LLMs • Transformers • RAG</p>
+  <p>Semantic Analysis • Text Generation</p>
+</td>
+</tr>
+<tr>
+<td align="center" style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 15px; border-radius: 10px; color: white;">
+  <h3>🤖 ROBOTICS & AUTONOMY</h3>
+  <p>Autonomous Drones • Robot Control</p>
+  <p>Edge AI • Real-time Processing</p>
+</td>
+<td align="center" style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 15px; border-radius: 10px; color: white;">
+  <h3>🎯 ADVANCED AI</h3>
+  <p>Multi-Agent Systems • AI Agents</p>
+  <p>Reinforcement Learning • VLMs</p>
+</td>
+</tr>
+<tr>
+<td colspan="2" align="center" style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 15px; border-radius: 10px; color: white;">
+  <h3>🏥 SPECIALIZED DOMAINS</h3>
+  <p>Medical AI • Healthcare Solutions • Biomedical Imaging • Diagnostic Systems</p>
+</td>
+</tr>
+</table>
 
-<br/>
+</div>
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d47a1,50:1a2f47,100:0d1117&height=100&section=footer&text=Let%27s%20Build%20the%20Future%20Together&fontSize=20&fontColor=58a6ff&fontAlignY=65&animation=twinkling"/>
+<br>
 
-**⭐ Star my repositories if my work inspires you! ⭐**
+---
+
+## ⚡ TECH STACK - COMPLETE ARSENAL
+
+<div align="center">
+
+### 🐍 PROGRAMMING LANGUAGES
+
+<div style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
+![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
+
+</div>
+
+### 🤖 AI/ML FRAMEWORKS
+
+<div style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
+![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
+![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
+![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
+![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
+
+</div>
+
+### 🎯 COMPUTER VISION & NLP
+
+<div style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![YOLO](https://img.shields.io/badge/YOLOv8-00BFFF?style=for-the-badge&logoColor=white)
+![Ultralytics](https://img.shields.io/badge/Ultralytics-FF006E?style=for-the-badge&logoColor=white)
+![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
+![Transformers](https://img.shields.io/badge/Transformers-FF006E?style=for-the-badge&logoColor=white)
+![LangChain](https://img.shields.io/badge/LangChain-00D9FF?style=for-the-badge&logoColor=white)
+
+</div>
+
+### 🔗 ADVANCED AI SYSTEMS
+
+<div style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![LangGraph](https://img.shields.io/badge/LangGraph-FF006E?style=for-the-badge&logoColor=white)
+![LlamaIndex](https://img.shields.io/badge/LlamaIndex-00D9FF?style=for-the-badge&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-8338EC?style=for-the-badge&logoColor=white)
+![Sentence Transformers](https://img.shields.io/badge/Sentence%20Transformers-FF006E?style=for-the-badge&logoColor=white)
+
+</div>
+
+### 🚀 BACKEND & APIs
+
+<div style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
+![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
+
+</div>
+
+### 🗄️ DATABASES
+
+<div style="background: linear-gradient(135deg, #06D6A0 0%, #118AB2 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
+![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
+![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
+
+</div>
+
+### ☁️ CLOUD & DEVOPS
+
+<div style="background: linear-gradient(135deg, #073B4C 0%, #EF476F 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
+![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+
+</div>
+
+### 🛠️ DEVELOPMENT TOOLS
+
+<div style="background: linear-gradient(135deg, #9D4EDD 0%, #FF006E 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
+
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
+![Jupyter](https://img.shields.io/badge/Jupyter-F37726?style=for-the-badge&logo=jupyter&logoColor=white)
+![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?style=for-the-badge&logo=google-colab&logoColor=white)
+
+</div>
+
+</div>
+
+<br>
+
+---
+
+## 🏆 FEATURED PROJECTS - SHOWCASE OF INNOVATION
+
+<div align="center">
+
+### 1. 🏙️ SMART CITY AI
+
+<div style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 20px; border-radius: 15px; color: white;">
+
+![Badge](https://img.shields.io/badge/YOLOv8-00BFFF?style=flat-square)
+![Badge](https://img.shields.io/badge/Computer%20Vision-FF006E?style=flat-square)
+![Badge](https://img.shields.io/badge/FastAPI-009688?style=flat-square)
+![Badge](https://img.shields.io/badge/Django-092E20?style=flat-square)
+![Badge](https://img.shields.io/badge/Docker-2496ED?style=flat-square)
+
+**Advanced real-time object detection and traffic monitoring system for smart cities**
+
+- ✅ Real-time vehicle and pedestrian detection using YOLOv8
+- ✅ Scalable FastAPI backend for high-throughput processing
+- ✅ Django admin dashboard for monitoring and analytics
+- ✅ Containerized deployment with Docker
+- ✅ Multi-camera stream processing capabilities
+
+[View Project](#) • [GitHub](#) • [Live Demo](#)
+
+</div>
+
+<br>
+
+### 2. 📄 RESUME SCREENING AI
+
+<div style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 20px; border-radius: 15px; color: white;">
+
+![Badge](https://img.shields.io/badge/NLP-00D9FF?style=flat-square)
+![Badge](https://img.shields.io/badge/Machine%20Learning-FF6F00?style=flat-square)
+![Badge](https://img.shields.io/badge/Django-092E20?style=flat-square)
+
+**Intelligent resume parsing and candidate ranking system**
+
+- ✅ Advanced NLP for resume text extraction and analysis
+- ✅ Skill matching and job requirement alignment
+- ✅ Automated candidate scoring and ranking
+- ✅ Multi-format document processing (PDF, DOCX)
+- ✅ Django-based web interface for HR teams
+
+[View Project](#) • [GitHub](#) • [Documentation](#)
+
+</div>
+
+<br>
+
+### 3. 📚 RAG DOCUMENT ASSISTANT
+
+<div style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 20px; border-radius: 15px; color: white;">
+
+![Badge](https://img.shields.io/badge/LangChain-FF006E?style=flat-square)
+![Badge](https://img.shields.io/badge/FAISS-8338EC?style=flat-square)
+![Badge](https://img.shields.io/badge/LLMs-3A86FF?style=flat-square)
+
+**Intelligent document retrieval and question-answering system**
+
+- ✅ Vector embedding and semantic search using FAISS
+- ✅ LangChain orchestration for complex RAG pipelines
+- ✅ Multi-document ingestion and processing
+- ✅ Context-aware question answering
+- ✅ LLM integration with LangGraph for agent workflows
+
+[View Project](#) • [GitHub](#) • [Try Demo](#)
+
+</div>
+
+<br>
+
+### 4. 👁️ Vision Intelligence Platform
+
+<div style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 20px; border-radius: 15px; color: white;">
+
+![Badge](https://img.shields.io/badge/Vision%20Language%20Models-FF006E?style=flat-square)
+![Badge](https://img.shields.io/badge/Computer%20Vision-00D9FF?style=flat-square)
+![Badge](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square)
+
+**Advanced visual understanding and multimodal AI system**
+
+- 🔄 Vision-Language Model integration and fine-tuning
+- 🔄 Image captioning and visual question answering
+- 🔄 Scene understanding and semantic analysis
+- 🔄 Production-ready API endpoints
+- 🔄 Real-world application deployment
+
+**Status: 🚀 Coming Soon**
+
+</div>
+
+<br>
+
+### 5. 🚁 Autonomous Drone AI
+
+<div style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 20px; border-radius: 15px; color: white;">
+
+![Badge](https://img.shields.io/badge/Robotics-FF006E?style=flat-square)
+![Badge](https://img.shields.io/badge/Edge%20AI-00D9FF?style=flat-square)
+![Badge](https://img.shields.io/badge/Autonomous%20Systems-8338EC?style=flat-square)
+
+**Intelligent autonomous drone control and coordination system**
+
+- 🚁 Real-time object detection for autonomous navigation
+- 🚁 Multi-drone coordination and swarm intelligence
+- 🚁 Edge AI for on-device processing
+- 🚁 Path planning and collision avoidance
+- 🚁 Computer vision-based autonomous control
+
+**Status: 🚀 Coming Soon**
+
+</div>
+
+</div>
+
+<br>
+
+---
+
+## 📊 GITHUB STATISTICS
+
+<div align="center">
+
+[![Hamza's GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamza01055&show_icons=true&theme=tokyonight&bg_color=0d1117&title_color=1e90ff&icon_color=00D9FF&text_color=ffffff&border_color=1e90ff&border_radius=10&count_private=true&include_all_commits=true)](https://github.com/hamza01055)
+
+<br>
+
+[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=hamza01055&theme=tokyonight&background=0d1117&stroke=1e90ff&ring=1e90ff&fire=1e90ff&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=00D9FF&dates=ffffff)](https://github.com/hamza01055)
+
+<br>
+
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamza01055&theme=tokyonight&bg_color=0d1117&title_color=1e90ff&text_color=ffffff&border_color=1e90ff&border_radius=10&layout=compact)](https://github.com/hamza01055)
+
+</div>
+
+<br>
+
+---
+
+## 🏅 GITHUB TROPHIES
+
+<div align="center">
+
+[![Hamza's Trophies](https://github-profile-trophy.vercel.app/?username=hamza01055&theme=tokyonight&no-bg=false&bg_color=0d1117&row=2&column=3)](https://github.com/hamza01055)
+
+</div>
+
+<br>
+
+---
+
+## 📈 CONTRIBUTION GRAPH
+
+<div align="center">
+
+[![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamza01055&theme=tokyo-night&bg_color=0d1117&color=1e90ff&line=00D9FF&point=1e90ff)](https://github.com/hamza01055)
+
+</div>
+
+<br>
+
+---
+
+## 🎖️ ACHIEVEMENTS
+
+<div align="center">
+
+<table>
+<tr style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); color: white;">
+<td align="center">
+  <h3>🏫 B.S. IN AI</h3>
+  <p>The Islamia University of Bahawalpur</p>
+</td>
+</tr>
+<tr style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); color: white;">
+<td align="center">
+  <h3>🤖 AI SPECIALIST</h3>
+  <p>Expert in Computer Vision, LLMs, and Robotics</p>
+</td>
+</tr>
+<tr style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); color: white;">
+<td align="center">
+  <h3>📊 FULL-STACK AI DEVELOPER</h3>
+  <p>From Research to Production Deployment</p>
+</td>
+</tr>
+<tr style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); color: white;">
+<td align="center">
+  <h3>🔬 RESEARCH FOCUSED</h3>
+  <p>Continuous learning in emerging AI domains</p>
+</td>
+</tr>
+<tr style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); color: white;">
+<td align="center">
+  <h3>💡 INNOVATION ORIENTED</h3>
+  <p>Building next-generation AI systems</p>
+</td>
+</tr>
+</table>
+
+</div>
+
+<br>
+
+---
+
+## 🔭 CURRENT RESEARCH
+
+<div align="center">
+
+<div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 30px; border-radius: 15px; color: white;">
+
+```
+┌───────────────────────────────────────────────────────────┐
+│           🚀 ACTIVE RESEARCH AREAS 🚀                    │
+├───────────────────────────────────────────────────────────┤
+│                                                           │
+│  🎯 Vision-Language Models (VLMs)                        │
+│     Exploring multimodal understanding and reasoning     │
+│                                                           │
+│  🤖 Autonomous Agents & Multi-Agent Systems             │
+│     Building collaborative AI systems                    │
+│                                                           │
+│  🚁 Edge AI & Drone Intelligence                        │
+│     Real-time AI on resource-constrained devices        │
+│                                                           │
+│  🏥 Medical AI & Healthcare                             │
+│     AI applications in medical imaging & diagnosis      │
+│                                                           │
+│  🧠 Reinforcement Learning                              │
+│     Policy learning and optimal control systems         │
+│                                                           │
+└───────────────────────────────────────────────────────────┘
+```
+
+</div>
+
+</div>
+
+<br>
+
+---
+
+## 🛣️ ROADMAP - FUTURE MILESTONES
+
+<div align="center">
+
+<div style="background: linear-gradient(135deg, #00D9FF 0%, #1e90ff 50%, #FF006E 100%); padding: 30px; border-radius: 15px; color: white;">
+
+```
+Q3 2024
+├── 🎯 Publish Vision-Language Model Research Paper
+├── 🎯 Complete Medical AI System
+└── 🎯 Open-source Drone Intelligence Framework
+
+Q4 2024
+├── 🚀 Launch Vision Intelligence Platform
+├── 🚀 Develop Advanced RAG System
+└── 🚀 Autonomous Multi-Drone Coordination
+
+2025+
+├── ⭐ Scale AI Systems for Production
+├── ⭐ Contribute to Open-Source AI Projects
+├── ⭐ Pursue Advanced AI Research Publications
+└── ⭐ Build Industry-Grade AI Solutions
+```
+
+</div>
+
+</div>
+
+<br>
+
+---
+
+## 🌍 OPEN SOURCE GOALS
+
+<div align="center">
+
+<table>
+<tr style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); color: white;">
+<td align="center"><strong>🎨 Publish Computer Vision Library</strong></td>
+<td align="center"><strong>📋 In Planning</strong></td>
+<td align="center"><strong>⏰ Q4 2024</strong></td>
+</tr>
+<tr style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); color: white;">
+<td align="center"><strong>📚 Open-Source RAG Framework</strong></td>
+<td align="center"><strong>📋 In Planning</strong></td>
+<td align="center"><strong>⏰ Q4 2024</strong></td>
+</tr>
+<tr style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); color: white;">
+<td align="center"><strong>🚁 Drone AI Toolkit</strong></td>
+<td align="center"><strong>📋 In Planning</strong></td>
+<td align="center"><strong>⏰ 2025</strong></td>
+</tr>
+<tr style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); color: white;">
+<td align="center"><strong>🎓 Vision-Language Model Fine-tuning Guide</strong></td>
+<td align="center"><strong>📋 In Planning</strong></td>
+<td align="center"><strong>⏰ Q3 2024</strong></td>
+</tr>
+<tr style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); color: white;">
+<td align="center"><strong>🤖 AI Agent Framework</strong></td>
+<td align="center"><strong>📋 In Planning</strong></td>
+<td align="center"><strong>⏰ 2025</strong></td>
+</tr>
+</table>
+
+</div>
+
+<br>
+
+---
+
+## 📬 CONNECT WITH ME
+
+<div align="center">
+
+### Let's collaborate and build the future of AI together! 🚀
+
+<br>
+
+[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github)](https://github.com/hamza01055)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/hamza-shahzad)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat-square&logo=gmail)](mailto:hamza.shahzad@example.com)
+[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=flat-square&logo=twitter)](https://twitter.com/)
+
+<br>
+
+Feel free to reach out for collaborations, research discussions, or opportunities! 💬
+
+</div>
+
+<br>
+
+---
+
+## 📝 PROFESSIONAL FOOTER
+
+<div align="center">
+
+<div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 30px; border-radius: 15px; color: white;">
+
+```
+╔══════════════════════════════════════════════════════════════╗
+║                                                              ║
+║           🚀 Artificial Intelligence Research Engineer 🚀   ║
+║                                                              ║
+║              Building Intelligent Systems Today,            ║
+║              Shaping the Future of AI Tomorrow              ║
+║                                                              ║
+║              Computer Vision • LLMs • Robotics              ║
+║         Multi-Agent Systems • Autonomous Vehicles           ║
+║                    Edge AI • Medical AI                     ║
+║                                                              ║
+║                  The Islamia University of                  ║
+║                     Bahawalpur, Pakistan 🇵🇰                 ║
+║                                                              ║
+╚══════════════════════════════════════════════════════════════╝
+```
+
+</div>
+
+<br>
+
+---
+
+<div>
+
+**Last Updated:** June 2024
+
+**Version:** 2.0 - Full Colorful Edition
+
+**License:** Creative Commons Attribution 4.0
+
+<br>
+
+### 👁️ Profile Visitors
+
+![Visitors](https://komarev.com/ghpvc/?username=hamza01055&color=FF006E&style=flat-square&label=Total+Visitors)
+
+</div>
+
+<br>
+
+<sup>🌟 If you find this profile inspiring, consider giving it a star! ⭐</sup>
 
 </div>
