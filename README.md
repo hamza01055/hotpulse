@@ -21,7 +21,7 @@
 ║              🌟 AI RESEARCH ENGINEER 🌟                       ║
 ║         Transforming Research into Production Systems          ║
 ║                                                                ║
-║          Computer Vision • LLMs • Robotics • Edge AI           ║
+║          Computer Vision • LLMs • Robotics • Edge AI.        ║
 ║                                                                ║
 ╚════════════════════════════════════════════════════════════════╝
 ```
