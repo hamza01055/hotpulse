@@ -1,805 +1,167 @@
-<div align="center">
+# HotPulse
 
+**A self-hosted news radar that runs a free local AI.** HotPulse reads dozens of sources, keeps only what matters, groups reports about the same event, ranks stories by how many independent sources cover them, and publishes multilingual daily briefings with RSS, a JSON API and an MCP server for AI agents.
 
-![banner](https://capsule-render.vercel.app/api?type=waving&color=0:00D9FF,25:1e90ff,50:FF006E,75:8338EC,100:3A86FF&height=350&section=header&text=Hamza%20Shahzad&fontSize=90&fontColor=ffffff&animation=fadeIn&fontAlignY=38)
+It ships with three channels, and you can add your own with one YAML file:
 
-<br>
+| Channel | What it tracks |
+|---|---|
+| **Global AI** | Model releases, research, products, funding, policy |
+| **Jobs & Scholarships** | Scholarships, fellowships, remote jobs, internships, with **deadlines, funding and "open to Pakistan"** extracted |
+| **Pakistan Tech** | Startups and funding, telecom, fintech, freelancing and IT exports, digital policy |
 
+![Home](docs/screenshots/home.png)
 
-<!-- VISITOR  COUNTER -->
+<table><tr>
+<td><img src="docs/screenshots/opportunities-urdu.png" alt="Urdu interface"></td>
+<td width="28%"><img src="docs/screenshots/mobile-hot.png" alt="Mobile"></td>
+</tr></table>
 
-<div>
-  <img src="https://komarev.com/ghpvc/?username=hamza01055&color=FF006E&style=for-the-badge&label=PROFILE%20VISITORS" alt="Visitor Count">
-</div>
-
-
-<br>
-
-[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&weight=700&size=28&duration=4000&pause=500&color=FF006E&center=true&vCenter=true&width=900&lines=🚀+Artificial+Intelligence+Research+Engineer;💻+Computer+Vision+%26+LLMs+Specialist;🤖+AI+Agents+%26+Autonomous+Systems;🎓+BS+in+Artificial+Intelligence;🔬+Building+The+Future+Of+AI)](https://github.com/hamza01055)
-
-<br>
-
-```
-╔════════════════════════════════════════════════════════════════╗
-║                                                                ║
-║              🌟 AI RESEARCH ENGINEER 🌟                       ║
-║         Transforming Research into Production Systems          ║
-║                                                                ║
-║          Computer Vision • LLMs • Robotics • Edge AI.        ║
-║                                                                ║
-╚════════════════════════════════════════════════════════════════╝
-```
-
-<br>
-
-<!-- SOCIAL LINKS WITH GRADIENT COLORS - PROMINENT DISPLAY -->
-<div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 25px; border-radius: 15px; margin: 20px 0;">
-
-### 🌐 CONNECT WITH ME
-
-<a href="https://github.com/hamza01055" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/GitHub-Follow%20Me-000?style=for-the-badge&logo=github&logoColor=white&color=FF006E" alt="GitHub" style="margin: 5px;">
-</a>
-<a href="https://linkedin.com/in/hamza-shahzad" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/LinkedIn-Connect-000?style=for-the-badge&logo=linkedin&logoColor=white&color=8338EC" alt="LinkedIn" style="margin: 5px;">
-</a>
-<a href="mailto:hamza.shahzad@example.com" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/Email-Contact%20Me-000?style=for-the-badge&logo=gmail&logoColor=white&color=00D9FF" alt="Email" style="margin: 5px;">
-</a>
-<a href="https://twitter.com/" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/Twitter-Follow-000?style=for-the-badge&logo=twitter&logoColor=white&color=3A86FF" alt="Twitter" style="margin: 5px;">
-</a>
-
-<br>
-
-<a href="https://medium.com/" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/Medium-Read%20Articles-000?style=for-the-badge&logo=medium&logoColor=white&color=FFB703" alt="Medium" style="margin: 5px;">
-</a>
-<a href="https://youtube.com/" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/YouTube-Subscribe-000?style=for-the-badge&logo=youtube&logoColor=white&color=FB5607" alt="YouTube" style="margin: 5px;">
-</a>
-<a href="https://researchgate.net/" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/ResearchGate-Follow-000?style=for-the-badge&logo=researchgate&logoColor=white&color=06D6A0" alt="ResearchGate" style="margin: 5px;">
-</a>
-<a href="https://kaggle.com/" style="text-decoration: none;">
-  <img src="https://img.shields.io/badge/Kaggle-Profile-000?style=for-the-badge&logo=kaggle&logoColor=white&color=118AB2" alt="Kaggle" style="margin: 5px;">
-</a>
-
-</div>
-
-</div>
+> Screenshots use the built-in **demo data**. Every company and number in it is fictional.
 
 ---
 
-## 🎯 LANDING PAGE - WELCOME TO MY AI UNIVERSE
+## Features
 
-<div align="center">
+- **Free, private AI.** Runs on [Ollama](https://ollama.com) on your own machine, with no API bills. If no model is running, transparent keyword rules take over, so it works from minute one.
+- **Two independent scores per story.** The sum must clear a bar that is lower for official sources (T1) and higher for aggregators (T3).
+- **Story grouping.** Reports about the same event are merged into one story. Matching uses headline overlap, shared rare names (startups, model names), optional embeddings, and the model as a tie-breaker.
+- **Heat ranking.** Breadth of independent coverage × quality × time decay, so ten articles from one site can't fake a trend.
+- **Opportunities mode.** Extracts deadline, funding type, eligibility and location, and whether Pakistani applicants can apply. Expired items are never picked. Includes a "closing soon" list.
+- **Multilingual.** English first; Urdu, Arabic, Hindi, Chinese, Spanish, French, Turkish, Indonesian and Bengali. The layout switches to RTL automatically. Picks are pre-translated into your chosen languages, and anything else translates on click (cached forever).
+- **Daily and weekly briefings.** Ranking is rule-based. The AI only writes a short intro, and the intro is rejected if it contains numbers that aren't in the stories.
+- **Social drafts.** Ready-to-post X (under 280 characters with the link) and Threads posts for your top stories, to grow your accounts with your own content.
+- **For machines too.** RSS per channel and per briefing, a JSON API with OpenAPI docs, `llms.txt`, a sitemap, and an **MCP server** with 5 tools.
+- **Admin panel.** Run the pipeline, see failing sources, add feeds, override picks, re-analyse items, and copy social drafts.
+- **Safety by design.** Article text is wrapped as untrusted `<material>` (protects against prompt injection), links the model invents are dropped, model answers are cached so a restart never redoes paid or slow work, and one broken feed never stops the rest.
 
-<table>
-<tr>
-<td width="50%">
+## Quick start (5 minutes)
 
-### 🚀 INNOVATOR
-Building cutting-edge AI systems that solve real-world problems
+You need **Python 3.10+**.
 
-**Specialization:**
-- Computer Vision
-- Large Language Models
-- Autonomous Systems
-- AI Research
+```bash
+git clone https://github.com/<you>/hotpulse.git
+cd hotpulse
+pip install -e .
+cp .env.example .env          # Windows: copy .env.example .env
 
-</td>
-<td width="50%">
-
-### 🔬 RESEARCHER
-Exploring the frontiers of artificial intelligence
-
-**Focus Areas:**
-- Vision-Language Models
-- Multi-Agent Systems
-- Robotics & Drones
-- Medical AI
-
-</td>
-</tr>
-</table>
-
-<br>
-
-### 📊 QUICK STATS
-
-<table>
-<tr>
-<td align="center">
-  <h3>🎓 Education</h3>
-  <p><strong>BS in AI</strong></p>
-  <small>Islamia University of Bahawalpur</small>
-</td>
-<td align="center">
-  <h3>🌍 Location</h3>
-  <p><strong>Pakistan</strong></p>
-  <small>🇵🇰 Faisalabad</small>
-</td>
-<td align="center">
-  <h3>💻 Projects</h3>
-  <p><strong>5+ Active</strong></p>
-  <small>And Growing Daily</small>
-</td>
-<td align="center">
-  <h3>🔧 Languages</h3>
-  <p><strong>5+</strong></p>
-  <small>Python • C++ • Java • JS • SQL</small>
-</td>
-</tr>
-</table>
-
-</div>
-
-<br>
-
-<br>
-
----
-
-## 🎯 AI DASHBOARD - PERFORMANCE METRICS
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Status-✅%20Verified%20Expert-3A86FF?style=for-the-badge" alt="Status">
-
-<br><br>
-
-<table style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 20px; border-radius: 15px;">
-<tr style="color: white;">
-<td align="center" width="33%">
-  <h3>⚡ Specialization</h3>
-  <p><strong>Computer Vision</strong></p>
-  <p>LLMs • Robotics</p>
-</td>
-<td align="center" width="33%">
-  <h3>🏆 Education</h3>
-  <p><strong>BS in AI</strong></p>
-  <p>Islamia University</p>
-</td>
-<td align="center" width="33%">
-  <h3>🌍 Location</h3>
-  <p><strong>Pakistan</strong></p>
-  <p>Bahawalpur 🇵🇰</p>
-</td>
-</tr>
-</table>
-
-<br>
-
-<table style="background: linear-gradient(135deg, #00D9FF 0%, #1e90ff 50%, #FF006E 100%); padding: 20px; border-radius: 15px;">
-<tr style="color: white;">
-<td align="center" width="33%">
-  <h3>💻 Status</h3>
-  <p><strong>Active Research</strong></p>
-  <p>AI Development</p>
-</td>
-<td align="center" width="33%">
-  <h3>🔬 Focus</h3>
-  <p><strong>Vision & LLMs</strong></p>
-  <p>Autonomous Systems</p>
-</td>
-<td align="center" width="33%">
-  <h3>🚀 Mission</h3>
-  <p><strong>Building Future AI</strong></p>
-  <p>Production Systems</p>
-</td>
-</tr>
-</table>
-
-</div>
-
-<br>
-
----
-
-## 👤 ABOUT ME
-
-<div align="center">
-
-```
-As an Artificial Intelligence Research Engineer, I specialize in 
-translating cutting-edge AI research into scalable, production-ready 
-systems. My focus lies in Computer Vision, Large Language Models, 
-and Autonomous Systems.
-
-I'm passionate about building intelligent systems that solve 
-real-world problems—from autonomous drones to RAG-based AI 
-assistants and vision-language models.
+hotpulse demo                 # fictional sample data, works offline
+hotpulse serve                # → http://127.0.0.1:8000
 ```
 
-</div>
-
-<br>
-
----
-
-## 🔬 RESEARCH INTERESTS - WHERE INNOVATION HAPPENS
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Status-🚀%20Active%20Research-FF006E?style=for-the-badge" alt="Status">
-
-<br><br>
-
-### 🎨 AI RESEARCH SPECTRUM
-
-<table>
-<tr>
-<td align="center" style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 15px; border-radius: 10px; color: white;">
-  <h3>👁️ COMPUTER VISION</h3>
-  <p>YOLOv8 • Image Classification</p>
-  <p>Object Detection • Scene Understanding</p>
-</td>
-<td align="center" style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 15px; border-radius: 10px; color: white;">
-  <h3>🧠 AI & NLP</h3>
-  <p>LLMs • Transformers • RAG</p>
-  <p>Semantic Analysis • Text Generation</p>
-</td>
-</tr>
-<tr>
-<td align="center" style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 15px; border-radius: 10px; color: white;">
-  <h3>🤖 ROBOTICS & AUTONOMY</h3>
-  <p>Autonomous Drones • Robot Control</p>
-  <p>Edge AI • Real-time Processing</p>
-</td>
-<td align="center" style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 15px; border-radius: 10px; color: white;">
-  <h3>🎯 ADVANCED AI</h3>
-  <p>Multi-Agent Systems • AI Agents</p>
-  <p>Reinforcement Learning • VLMs</p>
-</td>
-</tr>
-<tr>
-<td colspan="2" align="center" style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 15px; border-radius: 10px; color: white;">
-  <h3>🏥 SPECIALIZED DOMAINS</h3>
-  <p>Medical AI • Healthcare Solutions • Biomedical Imaging • Diagnostic Systems</p>
-</td>
-</tr>
-</table>
-
-</div>
-
-<br>
-
----
-
-## ⚡ TECH STACK - COMPLETE ARSENAL
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Status-Fully%20Mastered-8338EC?style=for-the-badge" alt="Status">
-
-<br><br>
-
-### 🐍 PROGRAMMING LANGUAGES
-
-<div style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![SQL](https://img.shields.io/badge/SQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=for-the-badge&logo=c%2B%2B&logoColor=white)
-![Java](https://img.shields.io/badge/Java-007396?style=for-the-badge&logo=java&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
-
-</div>
-
-### 🤖 AI/ML FRAMEWORKS
-
-<div style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)
-![TensorFlow](https://img.shields.io/badge/TensorFlow-FF6F00?style=for-the-badge&logo=tensorflow&logoColor=white)
-![Keras](https://img.shields.io/badge/Keras-D00000?style=for-the-badge&logo=keras&logoColor=white)
-![Scikit-learn](https://img.shields.io/badge/Scikit_learn-F7931E?style=for-the-badge&logo=scikit-learn&logoColor=white)
-![OpenCV](https://img.shields.io/badge/OpenCV-5C3EE8?style=for-the-badge&logo=opencv&logoColor=white)
-
-</div>
-
-### 🎯 COMPUTER VISION & NLP
-
-<div style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![YOLO](https://img.shields.io/badge/YOLOv8-00BFFF?style=for-the-badge&logoColor=white)
-![Ultralytics](https://img.shields.io/badge/Ultralytics-FF006E?style=for-the-badge&logoColor=white)
-![Hugging Face](https://img.shields.io/badge/Hugging%20Face-FFD21E?style=for-the-badge&logo=huggingface&logoColor=black)
-![Transformers](https://img.shields.io/badge/Transformers-FF006E?style=for-the-badge&logoColor=white)
-![LangChain](https://img.shields.io/badge/LangChain-00D9FF?style=for-the-badge&logoColor=white)
-
-</div>
-
-### 🔗 ADVANCED AI SYSTEMS
-
-<div style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![LangGraph](https://img.shields.io/badge/LangGraph-FF006E?style=for-the-badge&logoColor=white)
-![LlamaIndex](https://img.shields.io/badge/LlamaIndex-00D9FF?style=for-the-badge&logoColor=white)
-![FAISS](https://img.shields.io/badge/FAISS-8338EC?style=for-the-badge&logoColor=white)
-![Sentence Transformers](https://img.shields.io/badge/Sentence%20Transformers-FF006E?style=for-the-badge&logoColor=white)
-
-</div>
-
-### 🚀 BACKEND & APIs
-
-<div style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?style=for-the-badge&logo=django&logoColor=white)
-![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
-
-</div>
-
-### 🗄️ DATABASES
-
-<div style="background: linear-gradient(135deg, #06D6A0 0%, #118AB2 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![PostgreSQL](https://img.shields.io/badge/PostgreSQL-336791?style=for-the-badge&logo=postgresql&logoColor=white)
-![MongoDB](https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=mongodb&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white)
-
-</div>
-
-### ☁️ CLOUD & DEVOPS
-
-<div style="background: linear-gradient(135deg, #073B4C 0%, #EF476F 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
-![GitHub Actions](https://img.shields.io/badge/GitHub%20Actions-2088FF?style=for-the-badge&logo=github-actions&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
-
-</div>
-
-### 🛠️ DEVELOPMENT TOOLS
-
-<div style="background: linear-gradient(135deg, #9D4EDD 0%, #FF006E 100%); padding: 20px; border-radius: 15px; margin: 10px 0;">
-
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![VS Code](https://img.shields.io/badge/VS%20Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white)
-![Jupyter](https://img.shields.io/badge/Jupyter-F37726?style=for-the-badge&logo=jupyter&logoColor=white)
-![Google Colab](https://img.shields.io/badge/Google%20Colab-F9AB00?style=for-the-badge&logo=google-colab&logoColor=white)
-
-</div>
-
-</div>
-
-<br>
-
----
-
-## 🏆 FEATURED PROJECTS - SHOWCASE OF INNOVATION
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Portfolio-5%20Major%20Projects-3A86FF?style=for-the-badge" alt="Projects">
-
-<br><br>
-
-### 1. 🏙️ SMART CITY AI
-
-<div style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); padding: 20px; border-radius: 15px; color: white;">
-
-<img src="https://img.shields.io/badge/Status-✅%20Active-00D9FF?style=flat-square" alt="Active">
-
-![Badge](https://img.shields.io/badge/YOLOv8-00BFFF?style=flat-square)
-![Badge](https://img.shields.io/badge/Computer%20Vision-FF006E?style=flat-square)
-![Badge](https://img.shields.io/badge/FastAPI-009688?style=flat-square)
-![Badge](https://img.shields.io/badge/Django-092E20?style=flat-square)
-![Badge](https://img.shields.io/badge/Docker-2496ED?style=flat-square)
-
-**Advanced real-time object detection and traffic monitoring system for smart cities**
-
-- ✅ Real-time vehicle and pedestrian detection using YOLOv8
-- ✅ Scalable FastAPI backend for high-throughput processing
-- ✅ Django admin dashboard for monitoring and analytics
-- ✅ Containerized deployment with Docker
-- ✅ Multi-camera stream processing capabilities
-
-[View Project](#) • [GitHub](#) • [Live Demo](#)
-
-</div>
-
-<br>
-
-### 2. 📄 RESUME SCREENING AI
-
-<div style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); padding: 20px; border-radius: 15px; color: white;">
-
-<img src="https://img.shields.io/badge/Status-✅%20Active-00D9FF?style=flat-square" alt="Active">
-
-![Badge](https://img.shields.io/badge/NLP-00D9FF?style=flat-square)
-![Badge](https://img.shields.io/badge/Machine%20Learning-FF6F00?style=flat-square)
-![Badge](https://img.shields.io/badge/Django-092E20?style=flat-square)
-
-**Intelligent resume parsing and candidate ranking system**
-
-- ✅ Advanced NLP for resume text extraction and analysis
-- ✅ Skill matching and job requirement alignment
-- ✅ Automated candidate scoring and ranking
-- ✅ Multi-format document processing (PDF, DOCX)
-- ✅ Django-based web interface for HR teams
-
-[View Project](#) • [GitHub](#) • [Documentation](#)
-
-</div>
-
-<br>
-
-### 3. 📚 RAG DOCUMENT ASSISTANT
-
-<div style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); padding: 20px; border-radius: 15px; color: white;">
-
-<img src="https://img.shields.io/badge/Status-✅%20Active-FF006E?style=flat-square" alt="Active">
-
-![Badge](https://img.shields.io/badge/LangChain-FF006E?style=flat-square)
-![Badge](https://img.shields.io/badge/FAISS-8338EC?style=flat-square)
-![Badge](https://img.shields.io/badge/LLMs-3A86FF?style=flat-square)
-
-**Intelligent document retrieval and question-answering system**
-
-- ✅ Vector embedding and semantic search using FAISS
-- ✅ LangChain orchestration for complex RAG pipelines
-- ✅ Multi-document ingestion and processing
-- ✅ Context-aware question answering
-- ✅ LLM integration with LangGraph for agent workflows
-
-[View Project](#) • [GitHub](#) • [Try Demo](#)
-
-</div>
-
-<br>
-
-### 4. 👁️ Vision Intelligence Platform
-
-<div style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); padding: 20px; border-radius: 15px; color: white;">
-
-<img src="https://img.shields.io/badge/Status-⏰%20Coming%20Soon-FFB703?style=flat-square" alt="Coming Soon">
-
-![Badge](https://img.shields.io/badge/Vision%20Language%20Models-FF006E?style=flat-square)
-![Badge](https://img.shields.io/badge/Computer%20Vision-00D9FF?style=flat-square)
-![Badge](https://img.shields.io/badge/PyTorch-EE4C2C?style=flat-square)
-
-**Advanced visual understanding and multimodal AI system**
-
-- 🔄 Vision-Language Model integration and fine-tuning
-- 🔄 Image captioning and visual question answering
-- 🔄 Scene understanding and semantic analysis
-- 🔄 Production-ready API endpoints
-- 🔄 Real-world application deployment
-
-**Launching: Q4 2024**
-
-</div>
-
-<br>
-
-### 5. 🚁 Autonomous Drone AI
-
-<div style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); padding: 20px; border-radius: 15px; color: white;">
-
-<img src="https://img.shields.io/badge/Status-⏰%20Coming%20Soon-FF006E?style=flat-square" alt="Coming Soon">
-
-![Badge](https://img.shields.io/badge/Robotics-FF006E?style=flat-square)
-![Badge](https://img.shields.io/badge/Edge%20AI-00D9FF?style=flat-square)
-![Badge](https://img.shields.io/badge/Autonomous%20Systems-8338EC?style=flat-square)
-
-**Intelligent autonomous drone control and coordination system**
-
-- 🚁 Real-time object detection for autonomous navigation
-- 🚁 Multi-drone coordination and swarm intelligence
-- 🚁 Edge AI for on-device processing
-- 🚁 Path planning and collision avoidance
-- 🚁 Computer vision-based autonomous control
-
-**Launching: Q4 2024**
-
-</div>
-
-</div>
-
-<br>
-
----
-
-## 📊 GITHUB STATISTICS
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Stats-Live%20Updated-3A86FF?style=for-the-badge" alt="Live Stats">
-
-<br><br>
-
-[![Hamza's GitHub Stats](https://github-readme-stats.vercel.app/api?username=hamza01055&show_icons=true&theme=tokyonight&bg_color=0d1117&title_color=1e90ff&icon_color=00D9FF&text_color=ffffff&border_color=1e90ff&border_radius=10&count_private=true&include_all_commits=true)](https://github.com/hamza01055)
-
-<br>
-
-[![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=hamza01055&theme=tokyonight&background=0d1117&stroke=1e90ff&ring=1e90ff&fire=1e90ff&currStreakNum=ffffff&sideNums=ffffff&currStreakLabel=00D9FF&dates=ffffff)](https://github.com/hamza01055)
-
-<br>
-
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=hamza01055&theme=tokyonight&bg_color=0d1117&title_color=1e90ff&text_color=ffffff&border_color=1e90ff&border_radius=10&layout=compact)](https://github.com/hamza01055)
-
-</div>
-
-<br>
-
----
-
-## 🏅 GITHUB TROPHIES
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Achievements-Unlocked-FF006E?style=for-the-badge" alt="Achievements">
-
-<br><br>
-
-[![Hamza's Trophies](https://github-profile-trophy.vercel.app/?username=hamza01055&theme=tokyonight&no-bg=false&bg_color=0d1117&row=2&column=3)](https://github.com/hamza01055)
-
-</div>
-
-<br>
-
----
-
-## 📈 CONTRIBUTION GRAPH
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Activity-Consistent%20Contributions-8338EC?style=for-the-badge" alt="Contributions">
-
-<br><br>
-
-[![GitHub Activity Graph](https://github-readme-activity-graph.vercel.app/graph?username=hamza01055&theme=tokyo-night&bg_color=0d1117&color=1e90ff&line=00D9FF&point=1e90ff)](https://github.com/hamza01055)
-
-</div>
-
-<br>
-
----
-
-## 🎖️ ACHIEVEMENTS
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Recognition-Milestones%20Achieved-00D9FF?style=for-the-badge" alt="Achievements">
-
-<br><br>
-
-<table>
-<tr style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); color: white;">
-<td align="center">
-  <h3>🏫 B.S. IN AI</h3>
-  <p>The Islamia University of Bahawalpur</p>
-</td>
-</tr>
-<tr style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); color: white;">
-<td align="center">
-  <h3>🤖 AI SPECIALIST</h3>
-  <p>Expert in Computer Vision, LLMs, and Robotics</p>
-</td>
-</tr>
-<tr style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); color: white;">
-<td align="center">
-  <h3>📊 FULL-STACK AI DEVELOPER</h3>
-  <p>From Research to Production Deployment</p>
-</td>
-</tr>
-<tr style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); color: white;">
-<td align="center">
-  <h3>🔬 RESEARCH FOCUSED</h3>
-  <p>Continuous learning in emerging AI domains</p>
-</td>
-</tr>
-<tr style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); color: white;">
-<td align="center">
-  <h3>💡 INNOVATION ORIENTED</h3>
-  <p>Building next-generation AI systems</p>
-</td>
-</tr>
-</table>
-
-</div>
-
-<br>
-
----
-
-## 🔭 CURRENT RESEARCH
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Research-🚀%20Actively%20Exploring-FFB703?style=for-the-badge" alt="Active Research">
-
-<br><br>
-
-<div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 30px; border-radius: 15px; color: white;">
-
-```
-┌───────────────────────────────────────────────────────────┐
-│           🚀 ACTIVE RESEARCH AREAS 🚀                    │
-├───────────────────────────────────────────────────────────┤
-│                                                           │
-│  🎯 Vision-Language Models (VLMs)                        │
-│     Exploring multimodal understanding and reasoning     │
-│                                                           │
-│  🤖 Autonomous Agents & Multi-Agent Systems             │
-│     Building collaborative AI systems                    │
-│                                                           │
-│  🚁 Edge AI & Drone Intelligence                        │
-│     Real-time AI on resource-constrained devices        │
-│                                                           │
-│  🏥 Medical AI & Healthcare                             │
-│     AI applications in medical imaging & diagnosis      │
-│                                                           │
-│  🧠 Reinforcement Learning                              │
-│     Policy learning and optimal control systems         │
-│                                                           │
-└───────────────────────────────────────────────────────────┘
+When you're ready for real news:
+
+```bash
+hotpulse demo --clear
+hotpulse sources --test       # check which feeds are reachable from your network
+hotpulse serve                # collects every 30 minutes in the background
 ```
 
-</div>
+### Turn on the AI (free)
 
-</div>
+1. Install Ollama from https://ollama.com/download
+2. Pull a model that fits your machine:
 
-<br>
+   | Your RAM / GPU | Model | Command |
+   |---|---|---|
+   | 8 GB | small, fast | `ollama pull qwen2.5:3b` |
+   | 16 GB (default) | good balance | `ollama pull qwen2.5:7b` |
+   | 24 GB+ or a GPU | best quality | `ollama pull qwen2.5:14b` |
 
----
+   Any Ollama chat model that can answer in JSON works. Qwen models are recommended because their Urdu and other non-English output is strong.
+3. Set `OLLAMA_MODEL` in `.env` to match, then run `hotpulse doctor` to check everything.
 
-## 🛣️ ROADMAP - FUTURE MILESTONES
+Optional: `ollama pull nomic-embed-text` and set `OLLAMA_EMBED_MODEL=nomic-embed-text` for better story grouping.
 
-<div align="center">
+### Docker (site + Ollama together)
 
-<img src="https://img.shields.io/badge/Timeline-Strategic%20Planning-3A86FF?style=for-the-badge" alt="Roadmap">
-
-<br><br>
-
-<div style="background: linear-gradient(135deg, #00D9FF 0%, #1e90ff 50%, #FF006E 100%); padding: 30px; border-radius: 15px; color: white;">
-
-```
-Q3 2024
-├── 🎯 Publish Vision-Language Model Research Paper
-├── 🎯 Complete Medical AI System
-└── 🎯 Open-source Drone Intelligence Framework
-
-Q4 2024
-├── 🚀 Launch Vision Intelligence Platform
-├── 🚀 Develop Advanced RAG System
-└── 🚀 Autonomous Multi-Drone Coordination
-
-2025+
-├── ⭐ Scale AI Systems for Production
-├── ⭐ Contribute to Open-Source AI Projects
-├── ⭐ Pursue Advanced AI Research Publications
-└── ⭐ Build Industry-Grade AI Solutions
+```bash
+echo "ADMIN_TOKEN=pick-a-long-password" >> .env
+docker compose up -d          # first run downloads the model
 ```
 
-</div>
+## How it works
 
-</div>
-
-<br>
-
----
-
-## 🌍 OPEN SOURCE GOALS
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Contribution-Community%20Driven-06D6A0?style=for-the-badge" alt="Open Source">
-
-<br><br>
-
-<table>
-<tr style="background: linear-gradient(135deg, #FF006E 0%, #FF4365 100%); color: white;">
-<td align="center"><strong>🎨 Publish Computer Vision Library</strong></td>
-<td align="center"><strong>📋 In Planning</strong></td>
-<td align="center"><strong>⏰ Q4 2024</strong></td>
-</tr>
-<tr style="background: linear-gradient(135deg, #8338EC 0%, #9D4EDD 100%); color: white;">
-<td align="center"><strong>📚 Open-Source RAG Framework</strong></td>
-<td align="center"><strong>📋 In Planning</strong></td>
-<td align="center"><strong>⏰ Q4 2024</strong></td>
-</tr>
-<tr style="background: linear-gradient(135deg, #00D9FF 0%, #00B4D8 100%); color: white;">
-<td align="center"><strong>🚁 Drone AI Toolkit</strong></td>
-<td align="center"><strong>📋 In Planning</strong></td>
-<td align="center"><strong>⏰ 2025</strong></td>
-</tr>
-<tr style="background: linear-gradient(135deg, #3A86FF 0%, #5A67D8 100%); color: white;">
-<td align="center"><strong>🎓 Vision-Language Model Fine-tuning Guide</strong></td>
-<td align="center"><strong>📋 In Planning</strong></td>
-<td align="center"><strong>⏰ Q3 2024</strong></td>
-</tr>
-<tr style="background: linear-gradient(135deg, #FFB703 0%, #FB5607 100%); color: white;">
-<td align="center"><strong>🤖 AI Agent Framework</strong></td>
-<td align="center"><strong>📋 In Planning</strong></td>
-<td align="center"><strong>⏰ 2025</strong></td>
-</tr>
-</table>
-
-</div>
-
-<br>
-
----
-
-## 📬 CONNECT WITH ME
-
-<div align="center">
-
-<img src="https://img.shields.io/badge/Availability-Always%20Open%20to%20Connect-FF006E?style=for-the-badge" alt="Connect">
-
-<br><br>
-
-### Let's collaborate and build the future of AI together! 🚀
-
-<br>
-
-[![GitHub](https://img.shields.io/badge/GitHub-Follow-181717?style=flat-square&logo=github)](https://github.com/hamza01055)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-0A66C2?style=flat-square&logo=linkedin)](https://linkedin.com/in/hamza-shahzad)
-[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat-square&logo=gmail)](mailto:hamza.shahzad@example.com)
-[![Twitter](https://img.shields.io/badge/Twitter-Follow-1DA1F2?style=flat-square&logo=twitter)](https://twitter.com/)
-
-<br>
-
-Feel free to reach out for collaborations, research discussions, or opportunities! 💬
-
-</div>
-
-<br>
-
----
-
-## 📝 PROFESSIONAL FOOTER
-
-<div align="center">
-
-<div style="background: linear-gradient(135deg, #FF006E 0%, #8338EC 50%, #3A86FF 100%); padding: 30px; border-radius: 15px; color: white;">
-
-```
-╔══════════════════════════════════════════════════════════════╗
-║                                                              ║
-║           🚀 Artificial Intelligence Research Engineer 🚀   ║
-║                                                              ║
-║              Building Intelligent Systems Today,            ║
-║              Shaping the Future of AI Tomorrow              ║
-║                                                              ║
-║              Computer Vision • LLMs • Robotics              ║
-║         Multi-Agent Systems • Autonomous Vehicles           ║
-║                    Edge AI • Medical AI                     ║
-║                                                              ║
-║                  The Islamia University of                  ║
-║                     Bahawalpur, Pakistan 🇵🇰                 ║
-║                                                              ║
-╚══════════════════════════════════════════════════════════════╝
+```mermaid
+flowchart LR
+  S[RSS · JSON · job APIs] --> C[Collect<br/>dedupe · archive old]
+  C --> P[Gatekeep<br/>block spam]
+  P --> SC[Score ×2<br/>tier thresholds]
+  SC --> W[Write<br/>headline · summary · facts]
+  W --> G[Group into events]
+  G --> H[Heat ranking]
+  H --> B[Daily / weekly briefings]
+  W --> T[Translate]
+  H --> O[Web · RSS · API · MCP · social drafts]
 ```
 
-</div>
+| Step | File | Notes |
+|---|---|---|
+| Collect | `hotpulse/collect.py` | Canonical URLs + headline hash dedupe. Items older than 72 h, and a new source's backlog, are archived, never shown as "today". |
+| Judge & write | `hotpulse/analyze.py` | Prefilter → two scores (different seeds/temperatures) → structure and summary. A heuristic fallback runs at every step. |
+| Group & heat | `hotpulse/events.py` | Heat = Σ tier weights of distinct sources × (0.5 + score/100) × half-life decay of 24 h. |
+| Briefings & social | `hotpulse/digest.py` | One entry per event, max 2 per source, "closing soon" for opportunities. |
+| Prompts | `config/prompts/*.md` | Plain text. Edit them to change the editorial taste without touching code. |
 
-<br>
+## Make it yours
 
----
+Everything site-specific lives in `config/`:
 
-<div>
+- **`config/site.yaml`**: name, tagline, timezone, languages, auto-translate list, schedule.
+- **`config/channels/<key>.yaml`**: one file per channel: description, **rubric** (what your readers value), thresholds per tier, keywords, categories and sources.
+- **`config/prompts/`**: every instruction the model gets.
 
-**Last Updated:** June 2024
+Example: add a "Climate" channel by copying `ai.yaml` to `climate.yaml`, changing the rubric, categories and sources, and adding `climate` to `channels:` in `site.yaml`. Restart, and it appears in the menu, the API, RSS and MCP.
 
-**Version:** 2.0 - Full Colorful Edition
+**Tuning tips**
 
-**License:** Creative Commons Attribution 4.0
+- Too many weak picks? Raise the thresholds. Missing good stories? Describe that kind of value more clearly in `rubric`, which works better than lowering the thresholds.
+- Use **T1** for official, first-party sources, **T2** for good media, **T3** for aggregators like Google News or Hacker News.
+- The admin **Items** page shows both scores and the model's reason for every item.
 
-<br>
+## API & MCP
 
-### 👁️ Profile Visitors
+| Endpoint | |
+|---|---|
+| `GET /api/v1/items?channel=ai&category=models&lang=ur` | Picks (`all=true` for everything) |
+| `GET /api/v1/events/hot?days=3` | Events by heat |
+| `GET /api/v1/opportunities?within_days=14&open_to_pakistan=true` | Open opportunities by deadline |
+| `GET /api/v1/search?q=scholarship` | Full-text search (SQLite FTS5) |
+| `GET /api/v1/digests/{channel}/daily/latest` | Latest briefing |
+| `/feed.xml`, `/feed/{channel}.xml`, `/feed/{channel}/daily.xml` | RSS |
+| `POST /mcp` | MCP (Streamable HTTP): `latest_news`, `search_news`, `hot_events`, `daily_briefing`, `open_opportunities` |
 
-![Visitors](https://komarev.com/ghpvc/?username=hamza01055&color=FF006E&style=flat-square&label=Total+Visitors)
+Interactive docs are at `/api/docs`. To connect Claude Desktop or another MCP client, point it at `http://your-site/mcp`.
 
-</div>
+## Commands
 
-<br>
+```
+hotpulse init                 create DB, load sources
+hotpulse run [--channel ai]   one full cycle now
+hotpulse serve [--host 0.0.0.0 --port 8000 --no-scheduler]
+hotpulse demo [--ai | --clear]
+hotpulse digest [--today] [--kind weekly] [--channel X]
+hotpulse sources [--test]
+hotpulse doctor               check config, Ollama and the model
+```
 
-<sup>🌟 If you find this profile inspiring, consider giving it a star! ⭐</sup>
+## Deploying publicly
 
-</div>
+1. Set a long random `ADMIN_TOKEN` and your real `SITE_URL` in `.env`. The default token only works on localhost.
+2. Run with Docker, or `hotpulse serve --host 0.0.0.0` behind Caddy or Nginx with HTTPS.
+3. A small VPS (4 GB RAM) runs the site plus `qwen2.5:3b`. For bigger models, run Ollama on a machine with a GPU and point `OLLAMA_URL` at it.
+
+## Development
+
+```bash
+pip install -e ".[dev]"
+pytest -q        # 56 tests, no network: fake feeds + a fake Ollama server
+```
+
+The project layout is small on purpose: about 3,400 lines of Python, SQLite, Jinja templates, one CSS file and one JS file, with no build step.
+
+## Credits
+
+Inspired by the ideas in [AIHOT](https://github.com/KKKKhazix/AIHOT) (MIT): dual scoring, event grouping and source-diversity heat. HotPulse is an independent rewrite in Python with a different stack and feature set. No AIHOT code, prompts or branding are included (see `NOTICE`).
+
+MIT License.
