@@ -1,0 +1,49 @@
+key: ai
+name: Global AI
+icon: "◆"
+description: Model releases, research, products and policy from across the AI world.
+kind: news            # news | opportunities
+hashtags: ["#AI", "#GenAI", "#LLM"]
+
+# Minimum average score (0-100) of the two independent AI ratings.
+# T1 = official / first-party, T2 = good media, T3 = aggregators & community.
+thresholds: { T1: 58, T2: 68, T3: 74 }
+
+# Told to the AI when it scores. Describe what your readers care about.
+rubric: |
+  Readers are developers, founders and students who want to stay current on AI.
+  High value: new models or major versions, important open-source releases, tools people can use today,
+  significant research with real results, big funding/acquisitions/regulation, clear benchmarks.
+  Low value: listicles, recycled explainers, opinion without new facts, marketing fluff,
+  minor app updates, crypto or stock-price chatter, "AI will change everything" think pieces.
+
+# Used by the no-AI fallback mode and to boost relevance.
+keywords: [ai, "artificial intelligence", llm, gpt, model, openai, anthropic, claude, gemini, llama, mistral,
+  deepseek, qwen, "machine learning", neural, agent, agents, diffusion, transformer, "open-source", benchmark,
+  inference, gpu, nvidia, chatbot, multimodal, reasoning, "hugging face", copilot, rag, fine-tuning]
+block_keywords: [horoscope, "celebrity", "betting", "casino", "crypto price"]
+
+categories:
+  - { key: models, name: Model releases, keywords: [model, release, weights, version, launches, "open-weight", checkpoint] }
+  - { key: products, name: Products & tools, keywords: [app, tool, feature, launch, api, plugin, extension, update] }
+  - { key: research, name: Research, keywords: [paper, research, arxiv, study, benchmark, dataset] }
+  - { key: business, name: Business & funding, keywords: [funding, raises, acquisition, acquires, valuation, ipo, revenue, deal] }
+  - { key: policy, name: Policy & safety, keywords: [regulation, law, policy, act, safety, lawsuit, court, ban, government] }
+  - { key: open-source, name: Open source, keywords: [github, "open-source", "open source", repo, library, framework] }
+  - { key: guides, name: Guides & opinion, keywords: [how, guide, tutorial, explained, opinion, why, lessons] }
+
+# Feeds tested at the time of writing. If one breaks, the admin page shows it and the rest keep working.
+sources:
+  - { name: OpenAI News, url: "https://openai.com/news/rss.xml", tier: T1 }
+  - { name: Google DeepMind, url: "https://deepmind.google/blog/rss.xml", tier: T1 }
+  - { name: Google AI Blog, url: "https://blog.google/technology/ai/rss/", tier: T1 }
+  - { name: Hugging Face Blog, url: "https://huggingface.co/blog/feed.xml", tier: T1 }
+  - { name: Microsoft AI Blog, url: "https://blogs.microsoft.com/ai/feed/", tier: T1 }
+  - { name: NVIDIA Blog, url: "https://blogs.nvidia.com/feed/", tier: T1 }
+  - { name: TechCrunch AI, url: "https://techcrunch.com/category/artificial-intelligence/feed/", tier: T2 }
+  - { name: The Verge AI, url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", tier: T2 }
+  - { name: VentureBeat AI, url: "https://venturebeat.com/category/ai/feed/", tier: T2 }
+  - { name: MIT Technology Review AI, url: "https://www.technologyreview.com/topic/artificial-intelligence/feed", tier: T2 }
+  - { name: Ars Technica AI, url: "https://arstechnica.com/ai/feed/", tier: T2 }
+  - { name: Hacker News (150+ points), url: "https://hnrss.org/frontpage?points=150", tier: T3 }
+  - { name: Google News — AI, url: "https://news.google.com/rss/search?q=artificial+intelligence+when:1d&hl=en-US&gl=US&ceid=US:en", tier: T3 }

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block content %}
+<section class="hero">
+  <h1>{{ s.name }}</h1>
+  <p class="lede" dir="auto">{{ site.tagline }}</p>
+  <div class="hero-stats">
+    {% for key, c in channels.items() %}
+    <a class="stat" href="/c/{{ key }}"><span class="stat-num">{{ counts.get(key, {}).get('today', 0) }}</span><span class="stat-label">{{ c.name }} · 24h</span></a>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="layout">
+  <div class="col-main">
+    <section class="block">
+      <div class="block-head"><h2>{{ t('top_today') }}</h2><a href="/hot" class="more-link">{{ t('hot') }} →</a></div>
+      {% if hot %}
+        <div class="hot-list">{% for e in hot %}{{ m.event_row(e, loop.index) }}{% endfor %}</div>
+      {% else %}<p class="empty">{{ t('no_items') }}</p>{% endif %}
+    </section>
+
+    {% for key, c in channels.items() %}
+    <section class="block">
+      <div class="block-head">
+        <h2><span class="ch-icon" aria-hidden="true">{{ c.icon }}</span> {{ c.name }}</h2>
+        <a href="/c/{{ key }}" class="more-link">{{ t('latest') }} →</a>
+      </div>
+      {% set items = per_channel[key] %}
+      {% if items %}<div class="grid">{% for it in items %}{{ m.card(it) }}{% endfor %}</div>
+      {% else %}<p class="empty">{{ t('no_items') }}</p>{% endif %}
+    </section>
+    {% endfor %}
+  </div>
+
+  <aside class="col-side">
+    {% if closing %}
+    <section class="side-box">
+      <h2>{{ t('closing_soon') }}</h2>
+      <ul class="deadline-list">
+        {% for it in closing %}<li><a href="/item/{{ it.id }}">{{ m.ttl(it) }}</a>{{ m.deadline_badge(it.deadline) }}</li>{% endfor %}
+      </ul>
+      <a class="more-link" href="/opportunities">→ /opportunities</a>
+    </section>
+    {% endif %}
+    <section class="side-box">
+      <h2>{{ t('daily') }}</h2>
+      <ul class="plain-list">
+        {% for key, c in channels.items() %}{% set d = dailies[key] %}
+        <li>{% if d %}<a href="/briefings/{{ key }}/{{ d.kind }}/{{ d.slug }}">{{ d.title }}</a>{% else %}<span class="muted">{{ c.name }} — {{ t('no_items') }}</span>{% endif %}</li>
+        {% endfor %}
+      </ul>
+    </section>
+    <section class="side-box">
+      <h2>RSS · API · MCP</h2>
+      <p class="muted small">Follow any channel in your reader, or connect an AI agent.</p>
+      <ul class="plain-list small">
+        {% for key, c in channels.items() %}<li><a href="/feed/{{ key }}.xml">{{ c.name }} RSS</a></li>{% endfor %}
+        <li><a href="/developers">API &amp; MCP docs</a></li>
+      </ul>
+    </section>
+  </aside>
+</div>
+{% endblock %}

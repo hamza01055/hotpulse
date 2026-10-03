@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block title %}{{ t('bookmarks') }} — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head"><h1>★ {{ t('bookmarks') }}</h1>
+<p class="lede">Saved in this browser only. Nothing is sent to the server.</p></section>
+<ul class="briefing-list" data-saved-list><li class="empty">{{ t('no_items') }}</li></ul>
+{% endblock %}

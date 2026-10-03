@@ -1,0 +1,35 @@
+# Everything in one command:  docker compose up -d
+# First start downloads the AI model (~4.7 GB for qwen2.5:7b). Then open http://localhost:8000
+services:
+  ollama:
+    image: ollama/ollama:latest
+    volumes: ["ollama:/root/.ollama"]
+    restart: unless-stopped
+    # Uncomment for an NVIDIA GPU:
+    # deploy: { resources: { reservations: { devices: [{ driver: nvidia, count: all, capabilities: [gpu] }] } } }
+
+  ollama-pull:
+    image: ollama/ollama:latest
+    depends_on: [ollama]
+    environment: { OLLAMA_HOST: "ollama:11434" }
+    entrypoint: ["/bin/sh", "-c", "sleep 3 && ollama pull ${OLLAMA_MODEL:-qwen2.5:7b}"]
+    restart: "no"
+
+  hotpulse:
+    build: .
+    depends_on: [ollama]
+    ports: ["8000:8000"]
+    environment:
+      OLLAMA_URL: http://ollama:11434
+      OLLAMA_MODEL: ${OLLAMA_MODEL:-qwen2.5:7b}
+      ADMIN_TOKEN: ${ADMIN_TOKEN:?set ADMIN_TOKEN in .env}
+      SITE_URL: ${SITE_URL:-http://localhost:8000}
+      LLM_MODE: auto
+    volumes:
+      - data:/data
+      - ./config:/app/config:ro      # edit sources & prompts without rebuilding
+    restart: unless-stopped
+
+volumes:
+  ollama: {}
+  data: {}

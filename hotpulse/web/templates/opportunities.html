@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block title %}{{ t('closing_soon') }} — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>Open opportunities</h1>
+  <p class="lede">Every selected scholarship, job and fellowship that is still open, sorted by deadline.</p>
+  <div class="filters">
+    <a class="chip {% if not within %}chip-active{% endif %}" href="/opportunities?pk={{ pk }}">All open</a>
+    {% for d in [3, 7, 14, 30] %}<a class="chip {% if within == d %}chip-active{% endif %}" href="/opportunities?within={{ d }}&pk={{ pk }}">≤ {{ d }} days</a>{% endfor %}
+    <a class="chip {% if pk %}chip-active{% endif %}" href="/opportunities?pk={{ 0 if pk else 1 }}{% if within %}&within={{ within }}{% endif %}">🇵🇰 {{ t('only_pk') }}</a>
+  </div>
+  {% if ch %}<div class="filters">{% for c in ch.categories %}<a class="chip chip-soft {% if cat == c.key %}chip-active{% endif %}" href="/opportunities?cat={{ c.key }}&pk={{ pk }}">{{ c.name }}</a>{% endfor %}</div>{% endif %}
+</section>
+{% if items %}
+<div class="table-wrap">
+<table class="opp-table">
+  <thead><tr><th>{{ t('deadline') }}</th><th>Opportunity</th><th>{{ t('funding') }}</th><th>{{ t('location') }}</th></tr></thead>
+  <tbody>
+  {% for it in items %}
+  <tr>
+    <td>{{ m.deadline_badge(it.deadline) }}</td>
+    <td><a href="/item/{{ it.id }}"><strong>{{ m.ttl(it) }}</strong></a>
+      {% if it.facts and it.facts.eligibility %}<div class="muted small">{{ it.facts.eligibility }}</div>{% endif %}</td>
+    <td>{{ (it.facts or {}).get('funding') or '—' }}{% if (it.facts or {}).get('open_to_pakistan') %} <span class="badge badge-pk">PK</span>{% endif %}</td>
+    <td>{{ (it.facts or {}).get('location') or '—' }}</td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% else %}<p class="empty">{{ t('no_items') }}</p>{% endif %}
+{% endblock %}

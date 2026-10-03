@@ -1,0 +1,38 @@
+key: pakistan
+name: Pakistan Tech
+icon: "☾"
+description: Startups, funding, telecom, freelancing, IT exports and digital policy in Pakistan.
+kind: news
+hashtags: ["#PakistanTech", "#Startups", "#Freelancing"]
+
+thresholds: { T1: 52, T2: 60, T3: 68 }
+
+rubric: |
+  Readers are Pakistani developers, founders, freelancers and students.
+  High value: startup funding rounds and launches, IT/tech exports data, telecom & internet policy (PTA, 5G,
+  spectrum, internet shutdowns), freelancing & payment platforms (Payoneer, PayPal, Raast, SBP rules),
+  government digital initiatives, big-tech moves in Pakistan, tech jobs/layoffs, major hacks or outages.
+  Low value: phone price lists, generic gadget reviews, celebrity news, political stories with no tech angle,
+  press releases with no numbers or decisions.
+
+keywords: [pakistan, pakistani, karachi, lahore, islamabad, startup, funding, pta, sbp, raast, freelancing, freelancer,
+  "it exports", telecom, 5g, internet, fintech, ecommerce, jazz, zong, ufone, nadra, "digital pakistan", seed, series,
+  investment, payoneer, paypal, software, developers, mobile, app]
+block_keywords: [cricket, horoscope, "gold rate", "petrol price", celebrity, drama]
+
+categories:
+  - { key: startups, name: Startups & funding, keywords: [startup, funding, raises, seed, series, investors, valuation, acquires] }
+  - { key: telecom, name: Telecom & internet, keywords: [pta, telecom, 5g, spectrum, internet, broadband, jazz, zong, ufone, telenor] }
+  - { key: fintech, name: Fintech & payments, keywords: [sbp, raast, fintech, bank, payment, wallet, payoneer, paypal, easypaisa, jazzcash] }
+  - { key: freelancing, name: Freelancing & IT exports, keywords: [freelance, freelancing, freelancer, "it exports", remittances, upwork, fiverr] }
+  - { key: policy, name: Policy & government, keywords: [government, ministry, policy, nadra, moitt, law, regulation, budget, tax] }
+  - { key: products, name: Products & companies, keywords: [launch, app, company, platform, service, partnership] }
+
+sources:
+  - { name: TechJuice, url: "https://www.techjuice.pk/feed/", tier: T2 }
+  - { name: ProPakistani Tech, url: "https://propakistani.pk/category/technology/feed/", tier: T2 }
+  - { name: MENAbytes Pakistan, url: "https://www.menabytes.com/pakistan/feed/", tier: T2 }
+  - { name: Express Tribune Tech, url: "https://tribune.com.pk/feed/technology", tier: T2 }
+  - { name: Profit by Pakistan Today, url: "https://profit.pakistantoday.com.pk/feed/", tier: T2 }
+  - { name: Dawn Business, url: "https://www.dawn.com/feeds/business", tier: T2 }
+  - { name: Google News — Pakistan startups, url: "https://news.google.com/rss/search?q=Pakistan+startup+OR+fintech+OR+PTA+when:2d&hl=en-PK&gl=PK&ceid=PK:en", tier: T3 }

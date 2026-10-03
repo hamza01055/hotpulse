@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}{{ d.title }} — {{ s.name }}{% endblock %}
+{% block description %}{{ d.intro }}{% endblock %}
+{% block content %}
+{% macro et(e, key) -%}{% set x = tr.get(e.item_id) %}{{ x[key] if x and x[key] else e[key] }}{%- endmacro %}
+{% macro entry(e, big=false) -%}
+<article class="brief-entry{% if big %} brief-lead{% endif %}">
+  <div class="meta">{% if ch %}<span class="chip chip-soft">{{ ch.category_name(e.category) }}</span>{% endif %}<span class="src">{{ e.source }}</span>
+    {% if e.source_count and e.source_count > 1 %}<a class="pill-sources" href="/event/{{ e.event_id }}">{{ e.source_count }} {{ t('sources') }}</a>{% endif %}
+    {% if e.deadline %}<span class="badge badge-soon">{{ t('deadline') }} {{ e.deadline|nice_date }}</span>{% endif %}</div>
+  <h3 dir="auto"><a href="/item/{{ e.item_id }}">{{ et(e, 'title') }}</a></h3>
+  {% if e.summary %}<p>{{ et(e, 'summary') }}</p>{% endif %}
+  {% if e.why %}<p class="why-inline"><strong>{{ t('why') }}:</strong> {{ e.why }}</p>{% endif %}
+  {% if e.also %}<div class="also">{{ t('also_covered') }}: {% for a in e.also %}<a href="/item/{{ a.item_id }}">{{ a.source }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</div>{% endif %}
+</article>
+{%- endmacro %}
+<article class="briefing">
+  <nav class="crumbs"><a href="/briefings">{{ t('daily') }}</a> / <a href="/briefings?channel={{ d.channel }}">{{ ch.name if ch else d.channel }}</a></nav>
+  <h1>{{ d.title }}</h1>
+  <p class="muted small">{{ d.period_start|nice_date(s.timezone, '%d %b %H:%M') }} → {{ d.period_end|nice_date(s.timezone, '%d %b %H:%M') }} ·
+    {{ d.body.stats.selected }} picks · {{ d.body.stats.events }} stories · {{ d.body.stats.sources }} {{ t('sources') }}</p>
+  {% if d.intro %}<p class="lede" dir="auto">{{ d.intro }}</p>{% endif %}
+  {% if d.body.lead %}{{ entry(d.body.lead, true) }}{% endif %}
+  {% for e in d.body.main %}{{ entry(e) }}{% endfor %}
+  {% if d.body.closing_soon %}
+  <h2>{{ t('closing_soon') }}</h2>
+  <ul class="deadline-list">{% for e in d.body.closing_soon %}<li><a href="/item/{{ e.item_id }}">{{ et(e, 'title') }}</a> <span class="badge badge-soon">{{ e.deadline|nice_date }}</span></li>{% endfor %}</ul>
+  {% endif %}
+  {% if d.body.briefs %}
+  <h2>{{ t('briefs') }}</h2>
+  <ul class="brief-list">{% for e in d.body.briefs %}<li><a href="/item/{{ e.item_id }}">{{ et(e, 'title') }}</a> <span class="muted small">{{ e.source }}</span></li>{% endfor %}</ul>
+  {% endif %}
+  <p class="muted small">Subscribe: <a href="/feed/{{ d.channel }}/daily.xml">daily RSS</a></p>
+</article>
+{% endblock %}

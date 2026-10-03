@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block title %}{{ t('about') }} — {{ s.name }}{% endblock %}
+{% block content %}
+<article class="prose">
+<h1>How {{ s.name }} works</h1>
+<p>{{ s.name }} reads {{ channels.values()|map(attribute='sources')|map('length')|sum }} sources across {{ channels|length }} channels every {{ s.schedule('collect_every_minutes', 30) }} minutes and keeps only what is worth your time.</p>
+<ol>
+  <li><strong>Collect.</strong> RSS, JSON feeds and job APIs. Duplicate links and syndicated copies are dropped. Old articles are archived and never pushed as "today".</li>
+  <li><strong>Gatekeep.</strong> A quick check removes off-topic items, spam and pay-to-apply schemes.</li>
+  <li><strong>Score twice.</strong> The AI rates every item twice, independently. Both scores must clear a bar that is lower for official sources and higher for aggregators.</li>
+  <li><strong>Write.</strong> A clear headline, an answer-first summary and "why it matters". For opportunities it also extracts deadline, funding, eligibility and whether Pakistanis can apply.</li>
+  <li><strong>Group.</strong> Reports about the same event are grouped, so you see one story with all its sources.</li>
+  <li><strong>Rank by heat.</strong> Stories covered by more independent sources rank higher. Heat fades over time.</li>
+  <li><strong>Brief.</strong> Every morning a ranked briefing per channel, plus a weekly roundup.</li>
+</ol>
+<p>Everything links to the original source. The AI runs locally with <a href="https://ollama.com" rel="noopener">Ollama</a>. When no model is running, transparent keyword rules take over.</p>
+<p>Inspired by the open-source <a href="https://github.com/KKKKhazix/AIHOT" rel="noopener">AIHOT</a> project (MIT). {{ s.name }} is an independent rewrite.</p>
+</article>
+{% endblock %}

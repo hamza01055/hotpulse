@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}Items — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Items</h1>{% include "admin/_nav.html" %}
+  <div class="filters">
+    <a class="chip {% if not filter_channel %}chip-active{% endif %}" href="/admin/items{% if status %}?status={{ status }}{% endif %}">{{ t('all_channels') }}</a>
+    {% for key, c in channels.items() %}<a class="chip {% if filter_channel == key %}chip-active{% endif %}" href="/admin/items?channel={{ key }}{% if status %}&status={{ status }}{% endif %}">{{ c.name }}</a>{% endfor %}
+    <span class="sep"></span>
+    {% for st in ['new', 'analyzed', 'blocked', 'failed'] %}<a class="chip chip-soft {% if status == st %}chip-active{% endif %}" href="/admin/items?status={{ st }}{% if filter_channel %}&channel={{ filter_channel }}{% endif %}">{{ st }}</a>{% endfor %}
+  </div>
+</section>
+<div class="table-wrap">
+<table class="opp-table small">
+  <thead><tr><th>Score</th><th>Item</th><th>Status</th><th>Pick</th><th></th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+  <tr class="{% if r.selected %}is-pick{% endif %}">
+    <td title="{{ r.score_reason or '' }}"><strong>{{ r.score if r.score is not none else '—' }}</strong>{% if r.score1 is not none %}<div class="muted">{{ r.score1 }}/{{ r.score2 }} · {{ r.tier }}</div>{% endif %}</td>
+    <td><a href="/item/{{ r.id }}">{{ r.title or r.original_title }}</a>
+      <div class="muted">{{ r.channel }} · {{ r.source }} · {{ r.discovered_at|timeago }} · {{ r.analyzed_by or '' }}{% if r.archived %} · archived{% endif %}</div>
+      {% if r.score_reason %}<div class="muted">{{ r.score_reason }}</div>{% endif %}{% if r.error %}<div class="err">{{ r.error }}</div>{% endif %}</td>
+    <td>{{ r.status }}{% if r.prefilter %}<div class="muted">{{ r.prefilter }}</div>{% endif %}</td>
+    <td><form method="post" action="/admin/items/{{ r.id }}/select"><input type="hidden" name="value" value="{{ 0 if r.selected else 1 }}">
+      <button class="link-btn">{{ '★ unpick' if r.selected else '☆ pick' }}</button></form></td>
+    <td><form method="post" action="/admin/items/{{ r.id }}/reanalyze"><button class="link-btn">↻ redo</button></form></td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

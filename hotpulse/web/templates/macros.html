@@ -1,0 +1,54 @@
+{% macro ttl(it) -%}{{ it.title_tr if it.translated and lang != primary else (it.title or it.original_title) }}{%- endmacro %}
+{% macro smry(it) -%}{{ it.summary_tr if it.translated and lang != primary else it.summary }}{%- endmacro %}
+{% macro why(it) -%}{{ (it.why_tr if it.translated and lang != primary and it.why_tr else it.why_it_matters) or '' }}{%- endmacro %}
+
+{% macro deadline_badge(d) -%}
+{% set left = d|days_left %}
+{% if left is not none %}
+<span class="badge {% if left <= 3 %}badge-urgent{% elif left <= 10 %}badge-soon{% else %}badge-ok{% endif %}">
+  {% if left == 0 %}{{ t('today_left') }}{% else %}{{ left }} {{ t('days_left') }}{% endif %} · {{ d|nice_date }}
+</span>
+{% endif %}
+{%- endmacro %}
+
+{% macro meta(it, show_channel=false) -%}
+<div class="meta">
+  {% if show_channel and channels.get(it.channel) %}<a class="chip" href="/c/{{ it.channel }}">{{ channels[it.channel].name }}</a>{% endif %}
+  {% if it.category and channels.get(it.channel) %}<a class="chip chip-soft" href="/c/{{ it.channel }}?cat={{ it.category }}">{{ channels[it.channel].category_name(it.category) }}</a>{% endif %}
+  <span class="src">{{ it.source or (it.url|host) }}</span>
+  <span class="dot">·</span><time datetime="{{ it.published_at or it.discovered_at }}">{{ (it.published_at or it.discovered_at)|timeago }}</time>
+  {% if it.event_sources and it.event_sources > 1 %}<a class="pill-sources" href="/event/{{ it.event_id }}" title="{{ t('coverage') }}">{{ it.event_sources }} {{ t('sources') }}</a>{% endif %}
+</div>
+{%- endmacro %}
+
+{% macro card(it, show_channel=false, compact=false) -%}
+<article class="card{% if compact %} card-compact{% endif %}" data-item="{{ it.id }}">
+  {{ meta(it, show_channel) }}
+  <h3 class="card-title" dir="auto"><a href="/item/{{ it.id }}" data-tr-title>{{ ttl(it) }}</a></h3>
+  {% if not compact and it.summary %}<p class="card-summary" dir="auto" data-tr-summary>{{ smry(it) }}</p>{% endif %}
+  {% if it.deadline %}<div class="opp-row">{{ deadline_badge(it.deadline) }}
+    {% if it.facts and it.facts.funding and it.facts.funding != 'unknown' %}<span class="badge badge-fund">{{ it.facts.funding }}</span>{% endif %}
+    {% if it.facts and it.facts.open_to_pakistan %}<span class="badge badge-pk">{{ t('open_to_pk') }}</span>{% endif %}
+  </div>{% endif %}
+  {% if it.also %}<div class="also">{{ t('also_covered') }}: {% for a in it.also[:4] %}<a href="/item/{{ a.id }}">{{ a.source }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</div>{% endif %}
+  <div class="card-actions">
+    <button type="button" class="link-btn" data-save="{{ it.id }}" data-save-title="{{ ttl(it) }}">☆ {{ t('save') }}</button>
+    {% if lang != primary and not it.translated %}<button type="button" class="link-btn" data-translate="{{ it.id }}">⇄ {{ t('translate') }}</button>{% endif %}
+    <a class="link-btn" href="{{ it.url }}" target="_blank" rel="noopener">↗ {{ it.url|host }}</a>
+  </div>
+</article>
+{%- endmacro %}
+
+{% macro event_row(e, rank) -%}
+{% set it = e.lead %}
+<article class="hot-row" data-item="{{ it.id }}">
+  <div class="rank">{{ rank }}</div>
+  <div class="hot-body">
+    {{ meta(it, true) }}
+    <h3 class="card-title" dir="auto"><a href="/event/{{ e.id }}" data-tr-title>{{ ttl(it) }}</a></h3>
+    {% if it.summary %}<p class="card-summary clamp-2" dir="auto" data-tr-summary>{{ smry(it) }}</p>{% endif %}
+    <div class="heat-line"><span class="heat-bar" style="--w: {{ [e.heat * 2, 100]|min }}%"></span>
+      <span class="heat-label">{{ t('heat') }} {{ '%.0f'|format(e.heat) }} · {{ e.source_count }} {{ t('sources') }}: {{ e.sources[:4]|join(', ') }}</span></div>
+  </div>
+</article>
+{%- endmacro %}

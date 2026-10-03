@@ -1,0 +1,8 @@
+<nav class="tabs admin-tabs">
+  <a href="/admin" {% if path == '/admin' %}aria-selected="true"{% endif %}>Dashboard</a>
+  <a href="/admin/items" {% if path == '/admin/items' %}aria-selected="true"{% endif %}>Items</a>
+  <a href="/admin/sources" {% if path == '/admin/sources' %}aria-selected="true"{% endif %}>Sources</a>
+  <a href="/admin/social" {% if path == '/admin/social' %}aria-selected="true"{% endif %}>Social drafts</a>
+  <a href="/admin/logout">Log out</a>
+</nav>
+{% if msg %}<div class="flash">{{ msg }}</div>{% endif %}

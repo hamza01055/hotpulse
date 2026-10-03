@@ -1,0 +1,38 @@
+key: opportunities
+name: Jobs & Scholarships
+icon: "✦"
+description: Scholarships, fellowships, remote jobs, internships and competitions, with deadlines tracked for you.
+kind: opportunities   # adds deadline / eligibility / funding extraction and "closing soon"
+hashtags: ["#Scholarships", "#RemoteJobs", "#Opportunities"]
+
+thresholds: { T1: 50, T2: 58, T3: 64 }
+
+rubric: |
+  Readers are students and early-career professionals, many in Pakistan and other developing countries.
+  High value: fully or partially funded scholarships, fellowships, paid internships, remote jobs open
+  internationally, competitions with prizes, grants — with a clear deadline, eligibility and official link.
+  Extra value if open to Pakistani / international applicants or fully funded.
+  Low value: expired deadlines, pay-to-apply schemes, vague "opportunities" with no details,
+  roles restricted to one country unless that country is Pakistan, spam or MLM.
+
+keywords: [scholarship, scholarships, fellowship, internship, job, jobs, hiring, remote, grant, "fully funded",
+  deadline, apply, competition, program, programme, bootcamp, "call for applications", phd, masters,
+  undergraduate, exchange, conference, award]
+block_keywords: ["pay to apply", "registration fee", casino, betting]
+
+categories:
+  - { key: scholarships, name: Scholarships, keywords: [scholarship, scholarships, bachelor, masters, phd, "fully funded", tuition] }
+  - { key: fellowships, name: Fellowships & programs, keywords: [fellowship, program, programme, exchange, leadership, accelerator] }
+  - { key: remote-jobs, name: Remote jobs, keywords: [remote, hiring, job, engineer, developer, designer, "full-time", contract] }
+  - { key: internships, name: Internships, keywords: [internship, intern, trainee, graduate] }
+  - { key: competitions, name: Competitions & grants, keywords: [competition, contest, hackathon, prize, grant, award, challenge] }
+  - { key: events, name: Conferences & events, keywords: [conference, summit, workshop, event, webinar] }
+
+sources:
+  - { name: Opportunity Desk, url: "https://opportunitydesk.org/feed/", tier: T2 }
+  - { name: Opportunities for Youth, url: "https://opportunitiesforyouth.org/feed/", tier: T2 }
+  - { name: Scholarship Positions, url: "https://scholarship-positions.com/feed/", tier: T2 }
+  - { name: Opportunities Corners, url: "https://www.opportunitiescorners.com/feed/", tier: T2 }
+  - { name: We Work Remotely, url: "https://weworkremotely.com/remote-jobs.rss", tier: T1 }
+  - { name: Remote OK, url: "https://remoteok.com/api", kind: remoteok, tier: T1 }
+  - { name: Google News — Scholarships for Pakistanis, url: "https://news.google.com/rss/search?q=scholarship+Pakistani+students+when:7d&hl=en-PK&gl=PK&ceid=PK:en", tier: T3 }

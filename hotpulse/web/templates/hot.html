@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block title %}{{ t('hot') }} — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>{{ t('hot') }}</h1>
+  <p class="lede">Ranked by heat: how many independent sources cover a story (official sources count more), how strong it is, and how recent.</p>
+  <div class="filters">
+    <a class="chip {% if not filter_channel %}chip-active{% endif %}" href="/hot?days={{ days }}">{{ t('all_channels') }}</a>
+    {% for key, c in channels.items() %}<a class="chip {% if filter_channel == key %}chip-active{% endif %}" href="/hot?channel={{ key }}&days={{ days }}">{{ c.name }}</a>{% endfor %}
+    <span class="sep"></span>
+    {% for d in [1, 3, 7] %}<a class="chip chip-soft {% if days == d %}chip-active{% endif %}" href="/hot?days={{ d }}{% if filter_channel %}&channel={{ filter_channel }}{% endif %}">{{ d }}d</a>{% endfor %}
+  </div>
+</section>
+{% if events %}<div class="hot-list">{% for e in events %}{{ m.event_row(e, loop.index) }}{% endfor %}</div>
+{% else %}<p class="empty">{{ t('no_items') }}</p>{% endif %}
+{% endblock %}

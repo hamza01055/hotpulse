@@ -1,0 +1,8 @@
+- This channel lists opportunities. Also extract:
+  - organization: who offers it.
+  - deadline: application deadline as YYYY-MM-DD, or null if not stated. Today is {{today}}.
+  - location: country/city or "Remote" or "Online".
+  - eligibility: who can apply, one short sentence (nationality, degree level, age...).
+  - funding: one of "fully funded", "partially funded", "paid", "unpaid", "prize", "unknown".
+  - open_to_pakistan: true if Pakistani citizens can clearly apply, false if clearly excluded, null if unclear.
+  - apply_url: the official application link only if it appears in the material, else null.

@@ -1,0 +1,47 @@
+# ---------------------------------------------------------------
+# HotPulse site settings. Everything site-specific lives in config/,
+# so you can rebrand or add a new channel without touching code.
+# ---------------------------------------------------------------
+name: HotPulse
+tagline: What matters today in AI, opportunities and Pakistan tech, ranked by how many sources are talking about it.
+timezone: Asia/Karachi
+
+# Main language of everything the AI writes.
+primary_language: en
+
+# Languages readers can switch to. Codes are ISO 639-1.
+# rtl: true flips the page direction (Urdu, Arabic, Persian...).
+languages:
+  en: { name: English }
+  ur: { name: اردو, rtl: true }
+  ar: { name: العربية, rtl: true }
+  hi: { name: हिन्दी }
+  zh: { name: 中文 }
+  es: { name: Español }
+  fr: { name: Français }
+  tr: { name: Türkçe }
+  id: { name: Bahasa Indonesia }
+  bn: { name: বাংলা }
+
+# Selected stories are translated into these languages in the background.
+# Others are translated on demand when a reader clicks "Translate".
+auto_translate: [ur]
+
+# Channel order on the home page (file names in config/channels/).
+channels: [ai, opportunities, pakistan]
+
+schedule:
+  collect_every_minutes: 30      # fetch sources + analyse new items
+  daily_digest_hour: 8           # local time; covers the previous 24h
+  weekly_digest_weekday: 0       # 0 = Monday
+
+pipeline:
+  max_items_per_run: 120         # cap AI work per cycle (local models are slow)
+  ignore_older_than_hours: 72    # old articles are archived, never pushed to "today"
+  event_window_days: 7           # how far back to look when grouping stories
+  fetch_full_text: true          # download the article page when the feed only has a teaser
+  heuristic_threshold_offset: 8  # no-AI mode: lower the selection bar by this many points
+
+social:
+  hashtags: ["#AI", "#Tech"]
+  posts_per_digest: 5

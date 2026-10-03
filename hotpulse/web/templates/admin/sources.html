@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Sources — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Sources</h1>{% include "admin/_nav.html" %}</section>
+<section class="side-box">
+  <h2>Add a source</h2>
+  <form method="post" action="/admin/sources/add" class="form-grid">
+    <select name="channel" aria-label="Channel">{% for key, c in channels.items() %}<option value="{{ key }}">{{ c.name }}</option>{% endfor %}</select>
+    <input name="name" placeholder="Name" required aria-label="Name">
+    <input name="url" type="url" placeholder="https://example.com/feed/" required aria-label="Feed URL">
+    <select name="tier" aria-label="Tier"><option value="T1">T1 official</option><option value="T2" selected>T2 media</option><option value="T3">T3 aggregator</option></select>
+    <select name="kind" aria-label="Kind"><option value="rss">RSS / Atom</option><option value="json">JSON Feed</option><option value="remoteok">Remote OK API</option></select>
+    <button class="btn btn-primary">Add</button>
+  </form>
+</section>
+<div class="table-wrap">
+<table class="opp-table small">
+  <thead><tr><th>Channel</th><th>Source</th><th>Tier</th><th>Items</th><th>Last OK</th><th>Status</th><th></th></tr></thead>
+  <tbody>
+  {% for r in rows %}
+  <tr class="{% if not r.enabled %}is-off{% endif %}">
+    <td>{{ r.channel }}</td>
+    <td><strong>{{ r.name }}</strong><div class="muted url-cell">{{ r.url }}</div></td>
+    <td>{{ r.tier }}</td><td>{{ r.items_total }}</td>
+    <td>{{ r.last_ok_at|timeago if r.last_ok_at else '—' }}</td>
+    <td>{% if not r.enabled %}<span class="badge">off</span>{% elif r.fail_count %}<span class="badge badge-urgent" title="{{ r.last_error }}">failing ×{{ r.fail_count }}</span>{% elif r.last_ok_at %}<span class="badge badge-ok">ok</span>{% else %}<span class="badge">new</span>{% endif %}</td>
+    <td class="row-actions">
+      <form method="post" action="/admin/sources/{{ r.id }}/toggle"><button class="link-btn">{{ 'Disable' if r.enabled else 'Enable' }}</button></form>
+      {% if not r.from_config %}<form method="post" action="/admin/sources/{{ r.id }}/delete"><button class="link-btn">Delete</button></form>{% endif %}
+    </td>
+  </tr>
+  {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}

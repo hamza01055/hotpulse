@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Admin — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head narrow">
+  <h1>Admin</h1>
+  {% if weak %}<div class="flash flash-warn">Set a strong <code>ADMIN_TOKEN</code> in your <code>.env</code> file first. The default token is only accepted when the site runs on localhost.</div>{% endif %}
+  {% if error %}<div class="flash flash-warn">Wrong token.</div>{% endif %}
+  <form method="post" action="/admin/login" class="form-row">
+    <input type="password" name="token" placeholder="ADMIN_TOKEN" required autocomplete="current-password" aria-label="Admin token">
+    <button class="btn btn-primary">Log in</button>
+  </form>
+</section>
+{% endblock %}

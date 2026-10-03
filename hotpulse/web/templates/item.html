@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block title %}{{ m.ttl(it) }} — {{ s.name }}{% endblock %}
+{% block description %}{{ m.smry(it)|truncate(180) }}{% endblock %}
+{% block content %}
+<article class="article" data-item="{{ it.id }}">
+  <nav class="crumbs"><a href="/">{{ t('home') }}</a> / <a href="/c/{{ it.channel }}">{{ ch.name if ch else it.channel }}</a>
+    {% if it.category and ch %} / <a href="/c/{{ it.channel }}?cat={{ it.category }}">{{ ch.category_name(it.category) }}</a>{% endif %}</nav>
+  <h1 dir="auto" data-tr-title>{{ m.ttl(it) }}</h1>
+  {% if it.title and it.title != it.original_title %}<p class="orig-title muted">{{ t('show_original') }}: “{{ it.original_title }}”</p>{% endif %}
+  {{ m.meta(it) }}
+
+  {% if it.deadline or it.facts %}
+  {% set f = it.facts or {} %}
+  <dl class="facts">
+    {% if it.deadline %}<div><dt>{{ t('deadline') }}</dt><dd>{{ m.deadline_badge(it.deadline) }}</dd></div>{% endif %}
+    {% if f.organization %}<div><dt>Organisation</dt><dd>{{ f.organization }}</dd></div>{% endif %}
+    {% if f.funding and f.funding != 'unknown' %}<div><dt>{{ t('funding') }}</dt><dd>{{ f.funding }}</dd></div>{% endif %}
+    {% if f.location %}<div><dt>{{ t('location') }}</dt><dd>{{ f.location }}</dd></div>{% endif %}
+    {% if f.eligibility %}<div><dt>{{ t('eligibility') }}</dt><dd>{{ f.eligibility }}</dd></div>{% endif %}
+    {% if f.open_to_pakistan is not none %}<div><dt>{{ t('open_to_pk') }}</dt><dd>{{ 'Yes' if f.open_to_pakistan else 'No' }}</dd></div>{% endif %}
+  </dl>
+  {% endif %}
+
+  <div class="article-body">
+    <p class="summary-lg" dir="auto" data-tr-summary>{{ m.smry(it) }}</p>
+    {% if m.why(it)|trim %}<aside class="why"><strong>{{ t('why') }}</strong><span dir="auto" data-tr-why>{{ m.why(it) }}</span></aside>{% endif %}
+  </div>
+
+  <div class="article-actions">
+    <a class="btn btn-primary" href="{{ (it.facts or {}).get('apply_url') or it.url }}" target="_blank" rel="noopener">{{ t('apply') if it.deadline else t('read_original') }} ↗</a>
+    {% if it.deadline %}<a class="btn" href="{{ it.url }}" target="_blank" rel="noopener">{{ t('read_original') }} ↗</a>{% endif %}
+    <button type="button" class="btn" data-save="{{ it.id }}" data-save-title="{{ m.ttl(it) }}">☆ {{ t('save') }}</button>
+    {% if lang != primary and not it.translated %}<button type="button" class="btn" data-translate="{{ it.id }}">⇄ {{ t('translate') }}</button>{% endif %}
+    <button type="button" class="btn" data-share="{{ s.site_url }}/item/{{ it.id }}" data-share-title="{{ m.ttl(it) }}">↗ Share</button>
+  </div>
+
+  <div class="score-box muted small">
+    {{ t('score') }} {{ it.score }}/100{% if it.tier %} · source tier {{ it.tier }}{% endif %}
+    {% if it.tags %} · {% for tg in it.tags %}<a href="/search?q={{ tg|urlencode }}">#{{ tg }}</a> {% endfor %}{% endif %}
+    · analysed by {{ it.analyzed_by }}
+  </div>
+</article>
+
+{% if siblings %}
+<section class="block">
+  <div class="block-head"><h2>{{ t('coverage') }} ({{ siblings|length + 1 }})</h2>{% if ev %}<a class="more-link" href="/event/{{ ev.id }}">{{ t('timeline') }} →</a>{% endif %}</div>
+  <ul class="coverage">{% for x in siblings %}
+    <li><span class="src">{{ x.source }}</span> <a href="/item/{{ x.id }}">{{ m.ttl(x) }}</a> <span class="muted small">{{ (x.published_at or x.discovered_at)|timeago }}</span></li>
+  {% endfor %}</ul>
+</section>
+{% endif %}
+
+{% if related %}
+<section class="block">
+  <div class="block-head"><h2>More in {{ ch.category_name(it.category) if ch else '' }}</h2></div>
+  <div class="grid">{% for r in related %}{{ m.card(r, compact=true) }}{% endfor %}</div>
+</section>
+{% endif %}
+{% endblock %}

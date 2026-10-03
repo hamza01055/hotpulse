@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block title %}{{ ch.name }} — {{ s.name }}{% endblock %}
+{% block description %}{{ ch.description }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1><span class="ch-icon" aria-hidden="true">{{ ch.icon }}</span> {{ ch.name }}</h1>
+  <p class="lede" dir="auto">{{ ch.description }}</p>
+  <div class="tabs" role="tablist">
+    <a role="tab" href="/c/{{ ch.key }}" aria-selected="{{ 'true' if view != 'all' else 'false' }}">{{ t('picks') }}</a>
+    <a role="tab" href="/c/{{ ch.key }}?view=all" aria-selected="{{ 'true' if view == 'all' else 'false' }}">{{ t('all_updates') }}</a>
+    {% if daily %}<a href="/briefings/{{ ch.key }}/{{ daily.kind }}/{{ daily.slug }}">{{ t('daily') }}</a>{% endif %}
+    <a href="/feed/{{ ch.key }}.xml" class="rss">RSS</a>
+  </div>
+  <div class="filters">
+    <a class="chip {% if not cat %}chip-active{% endif %}" href="/c/{{ ch.key }}{% if view == 'all' %}?view=all{% endif %}">{{ t('everything') }}</a>
+    {% for c in ch.categories %}
+    <a class="chip {% if cat == c.key %}chip-active{% endif %}" href="/c/{{ ch.key }}?cat={{ c.key }}{% if view == 'all' %}&view=all{% endif %}">{{ c.name }}{% if cats.get(c.key) %} <span class="count">{{ cats[c.key] }}</span>{% endif %}</a>
+    {% endfor %}
+    {% if ch.is_opportunities %}<a class="chip {% if pk %}chip-active{% endif %}" href="/c/{{ ch.key }}?pk={{ 0 if pk else 1 }}{% if cat %}&cat={{ cat }}{% endif %}">🇵🇰 {{ t('only_pk') }}</a>{% endif %}
+  </div>
+</section>
+
+<div class="layout">
+  <div class="col-main">
+    {% if items %}
+      <div class="stack">{% for it in items %}{{ m.card(it) }}{% endfor %}</div>
+      <nav class="pager">
+        {% if page > 1 %}<a href="?view={{ view }}{% if cat %}&cat={{ cat }}{% endif %}&page={{ page - 1 }}">← {{ page - 1 }}</a>{% endif %}
+        {% if has_more %}<a href="?view={{ view }}{% if cat %}&cat={{ cat }}{% endif %}&page={{ page + 1 }}">{{ t('more') }} →</a>{% endif %}
+      </nav>
+    {% else %}<p class="empty">{{ t('no_items') }}</p>{% endif %}
+  </div>
+  <aside class="col-side">
+    {% if closing %}
+    <section class="side-box">
+      <h2>{{ t('closing_soon') }}</h2>
+      <ul class="deadline-list">{% for it in closing %}<li><a href="/item/{{ it.id }}">{{ m.ttl(it) }}</a>{{ m.deadline_badge(it.deadline) }}</li>{% endfor %}</ul>
+      <a class="more-link" href="/opportunities">→ /opportunities</a>
+    </section>
+    {% endif %}
+    {% if hot %}
+    <section class="side-box">
+      <h2>{{ t('hot') }}</h2>
+      <ol class="mini-hot">{% for e in hot %}<li><a href="/event/{{ e.id }}">{{ m.ttl(e.lead) }}</a><span class="muted small">{{ e.source_count }} {{ t('sources') }}</span></li>{% endfor %}</ol>
+    </section>
+    {% endif %}
+  </aside>
+</div>
+{% endblock %}

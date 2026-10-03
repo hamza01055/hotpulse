@@ -1,0 +1,4 @@
+HotPulse is an independent Python rewrite inspired by the design ideas of AIHOT
+(https://github.com/KKKKhazix/AIHOT, MIT licensed): dual independent scoring,
+grouping reports into events, and ranking heat by source diversity.
+No AIHOT source code, prompts, branding or assets are included.

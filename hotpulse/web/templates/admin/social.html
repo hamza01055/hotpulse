@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}Social drafts — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head"><h1>Social drafts</h1>{% include "admin/_nav.html" %}
+<p class="lede">Ready-to-post drafts for X and Threads, written from your top stories. Review, copy, post, then mark as used.</p>
+<form method="post" action="/admin/social/generate"><button class="btn btn-primary">Draft posts for current hot stories</button></form>
+</section>
+{% if posts %}
+<div class="grid">
+{% for p in posts %}
+<article class="card {% if p.used %}is-off{% endif %}">
+  <div class="meta"><span class="chip">{{ channels[p.channel].name if channels.get(p.channel) else p.channel }}</span><a href="/item/{{ p.item_id }}">{{ p.title|truncate(70) }}</a></div>
+  {% for platform in ['x', 'threads'] %}{% if p.get(platform) %}
+  {% set text = p[platform].text ~ '\n\n' ~ s.site_url ~ '/item/' ~ p.item_id %}
+  <div class="draft">
+    <div class="draft-head"><strong>{{ 'X' if platform == 'x' else 'Threads' }}</strong>
+      <span class="muted small" data-charcount data-limit="{{ 280 if platform == 'x' else 500 }}">{{ (p[platform].text|length + (25 if platform == 'x' else (text|length - p[platform].text|length))) }} / {{ 280 if platform == 'x' else 500 }}</span>
+      <button type="button" class="link-btn" data-copy>{{ t('copy') }}</button></div>
+    <textarea rows="{{ 5 if platform == 'x' else 7 }}" aria-label="{{ platform }} draft">{{ text }}</textarea>
+  </div>
+  {% endif %}{% endfor %}
+  {% if not p.used %}<form method="post" action="/admin/social/{{ p.item_id }}/used"><button class="link-btn">✓ mark as used</button></form>{% else %}<span class="muted small">used</span>{% endif %}
+</article>
+{% endfor %}
+</div>
+{% else %}<p class="empty">No drafts yet. They're created with every briefing, or click the button above.</p>{% endif %}
+{% endblock %}

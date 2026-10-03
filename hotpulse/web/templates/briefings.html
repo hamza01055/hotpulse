@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}{{ t('daily') }} — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>{{ t('daily') }}</h1>
+  <p class="lede">A daily briefing every morning at {{ s.schedule('daily_digest_hour', 8) }}:00 ({{ s.timezone }}) and a weekly roundup. Ranked by rules; the AI only writes the short intro.</p>
+  <div class="filters">
+    <a class="chip {% if not filter_channel %}chip-active{% endif %}" href="/briefings">{{ t('all_channels') }}</a>
+    {% for key, c in channels.items() %}<a class="chip {% if filter_channel == key %}chip-active{% endif %}" href="/briefings?channel={{ key }}">{{ c.name }}</a>{% endfor %}
+    <a class="chip chip-soft {% if kind == 'weekly' %}chip-active{% endif %}" href="/briefings?kind=weekly{% if filter_channel %}&channel={{ filter_channel }}{% endif %}">{{ t('weekly') }}</a>
+  </div>
+</section>
+{% if rows %}
+<ul class="briefing-list">
+  {% for d in rows %}
+  <li><a href="/briefings/{{ d.channel }}/{{ d.kind }}/{{ d.slug }}"><strong>{{ d.title }}</strong></a>
+    {% if d.intro %}<p class="muted">{{ d.intro|truncate(220) }}</p>{% endif %}</li>
+  {% endfor %}
+</ul>
+{% else %}<p class="empty">{{ t('no_items') }}</p>{% endif %}
+{% endblock %}

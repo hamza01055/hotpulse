@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block title %}{{ t('search') }}{% if q %}: {{ q }}{% endif %} — {{ s.name }}{% endblock %}
+{% block content %}
+<section class="page-head">
+  <h1>{{ t('search') }}</h1>
+  <form class="search-big" action="/search" role="search">
+    <input name="q" type="search" value="{{ q }}" placeholder="{{ t('search_ph') }}" autofocus aria-label="{{ t('search') }}">
+    <select name="channel" aria-label="{{ t('filter') }}"><option value="">{{ t('all_channels') }}</option>
+      {% for key, c in channels.items() %}<option value="{{ key }}" {% if filter_channel == key %}selected{% endif %}>{{ c.name }}</option>{% endfor %}</select>
+    <button class="btn btn-primary" type="submit">{{ t('search') }}</button>
+  </form>
+</section>
+{% if q %}
+  <p class="muted">{{ results|length }} results</p>
+  {% if results %}<div class="stack">{% for it in results %}{{ m.card(it, true) }}{% endfor %}</div>{% endif %}
+{% endif %}
+{% endblock %}

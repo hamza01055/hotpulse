@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% import "macros.html" as m with context %}
+{% block title %}{{ ev.title }} — {{ s.name }}{% endblock %}
+{% block content %}
+{% set lead = items[0] if items else none %}
+<section class="page-head">
+  <nav class="crumbs"><a href="/hot">{{ t('hot') }}</a> / <a href="/c/{{ ev.channel }}">{{ ch.name if ch else ev.channel }}</a></nav>
+  <h1>{{ m.ttl(lead) if lead else ev.title }}</h1>
+  <div class="event-stats">
+    <span class="stat-inline"><strong>{{ '%.0f'|format(ev.heat) }}</strong> {{ t('heat') }}</span>
+    <span class="stat-inline"><strong>{{ ev.source_count }}</strong> {{ t('sources') }}</span>
+    <span class="stat-inline"><strong>{{ ev.item_count }}</strong> reports</span>
+    <span class="stat-inline">{{ ev.first_seen|nice_date(s.timezone, '%d %b %H:%M') }} → {{ ev.last_seen|nice_date(s.timezone, '%d %b %H:%M') }}</span>
+  </div>
+</section>
+{% if lead %}
+<div class="article-body">
+  <p class="summary-lg" dir="auto">{{ m.smry(lead) }}</p>
+  {% if m.why(lead)|trim %}<aside class="why"><strong>{{ t('why') }}</strong><span>{{ m.why(lead) }}</span></aside>{% endif %}
+</div>
+{% endif %}
+<section class="block">
+  <div class="block-head"><h2>{{ t('timeline') }}</h2></div>
+  <ol class="timeline">
+    {% for x in timeline %}
+    <li class="{% if x.selected %}is-pick{% endif %}">
+      <time>{{ (x.published_at or x.discovered_at)|nice_date(s.timezone, '%d %b, %H:%M') }}</time>
+      <div><span class="src">{{ x.source }}{% if x.tier == 'T1' %} <span class="badge badge-ok">official</span>{% endif %}</span>
+        <a href="/item/{{ x.id }}">{{ m.ttl(x) }}</a>
+        <a class="muted small" href="{{ x.url }}" target="_blank" rel="noopener">↗ {{ x.url|host }}</a></div>
+    </li>
+    {% endfor %}
+  </ol>
+</section>
+{% endblock %}

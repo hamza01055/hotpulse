@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}{{ t('api') }} — {{ s.name }}{% endblock %}
+{% block content %}
+<article class="prose">
+<h1>API, RSS &amp; MCP</h1>
+<p>Everything on this site is available to apps, readers and AI agents. No key needed.</p>
+<h2>JSON API</h2>
+<div class="table-wrap"><table class="opp-table api-table">
+<tr><td><code>GET /api/v1/channels</code></td><td>Channels, categories, counts</td></tr>
+<tr><td><code>GET /api/v1/items?channel=ai&amp;category=models&amp;limit=30&amp;lang=ur</code></td><td>Selected stories (<code>all=true</code> for everything)</td></tr>
+<tr><td><code>GET /api/v1/items/{id}</code></td><td>One story</td></tr>
+<tr><td><code>GET /api/v1/events/hot?channel=pakistan&amp;days=3</code></td><td>Events ranked by heat</td></tr>
+<tr><td><code>GET /api/v1/opportunities?within_days=14&amp;open_to_pakistan=true</code></td><td>Open scholarships &amp; jobs by deadline</td></tr>
+<tr><td><code>GET /api/v1/search?q=scholarship</code></td><td>Full-text search</td></tr>
+<tr><td><code>GET /api/v1/digests/{channel}/daily/latest</code></td><td>Latest briefing</td></tr>
+</table></div>
+<p>Interactive docs: <a href="/api/docs">/api/docs</a> · OpenAPI: <a href="/api/openapi.json">/api/openapi.json</a></p>
+<h2>RSS</h2>
+<ul>
+<li><a href="/feed.xml">/feed.xml</a>: all picks</li>
+{% for key, c in channels.items() %}<li><a href="/feed/{{ key }}.xml">/feed/{{ key }}.xml</a>: {{ c.name }} · <a href="/feed/{{ key }}/daily.xml">daily briefing</a></li>{% endfor %}
+</ul>
+<h2>MCP (for AI agents)</h2>
+<p>Endpoint: <code>{{ s.site_url }}/mcp</code> (Streamable HTTP, JSON responses). Tools: <code>latest_news</code>, <code>search_news</code>, <code>hot_events</code>, <code>daily_briefing</code>, <code>open_opportunities</code>.</p>
+<pre><code>{
+  "mcpServers": {
+    "{{ s.name|lower }}": { "type": "http", "url": "{{ s.site_url }}/mcp" }
+  }
+}</code></pre>
+</article>
+{% endblock %}
