@@ -38,7 +38,7 @@ sources:
   - { name: Google DeepMind, url: "https://deepmind.google/blog/rss.xml", tier: T1 }
   - { name: Google AI Blog, url: "https://blog.google/technology/ai/rss/", tier: T1 }
   - { name: Hugging Face Blog, url: "https://huggingface.co/blog/feed.xml", tier: T1 }
-  - { name: Microsoft AI Blog, url: "https://blogs.microsoft.com/ai/feed/", tier: T1 }
+  - { name: Microsoft AI Blog, url: "https://news.microsoft.com/source/topics/ai/feed/", tier: T1 }
   - { name: NVIDIA Blog, url: "https://blogs.nvidia.com/feed/", tier: T1 }
   - { name: TechCrunch AI, url: "https://techcrunch.com/category/artificial-intelligence/feed/", tier: T2 }
   - { name: The Verge AI, url: "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml", tier: T2 }

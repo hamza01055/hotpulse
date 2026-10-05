@@ -31,7 +31,7 @@ categories:
 sources:
   - { name: Opportunity Desk, url: "https://opportunitydesk.org/feed/", tier: T2 }
   - { name: Opportunities for Youth, url: "https://opportunitiesforyouth.org/feed/", tier: T2 }
-  - { name: Scholarship Positions, url: "https://scholarship-positions.com/feed/", tier: T2 }
+  - { name: Scholarship Positions, url: "https://scholarship-positions.com/feed/", tier: T2, enabled: false }  # serves a bot-challenge page, not RSS
   - { name: Opportunities Corners, url: "https://www.opportunitiescorners.com/feed/", tier: T2 }
   - { name: We Work Remotely, url: "https://weworkremotely.com/remote-jobs.rss", tier: T1 }
   - { name: Remote OK, url: "https://remoteok.com/api", kind: remoteok, tier: T1 }

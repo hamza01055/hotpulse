@@ -4,3 +4,4 @@ __pycache__/
 data/*.db*
 .pytest_cache/
 *.egg-info/
+.venv/

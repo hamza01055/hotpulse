@@ -16,7 +16,7 @@ from .text import canonical_url, clean_html, detect_script_lang, parse_iso, titl
 
 log = logging.getLogger("hotpulse.collect")
 
-USER_AGENT = "Mozilla/5.0 (compatible; HotPulse/0.1; +https://github.com/)"
+USER_AGENT = "Mozilla/5.0 (compatible; HotPulse/0.1; +https://github.com/hamza01055/hotpulse)"
 Fetcher = Callable[[str], bytes]
 
 

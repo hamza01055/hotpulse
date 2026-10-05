@@ -157,6 +157,10 @@ def main(argv: list[str] | None = None) -> None:
     sub.add_parser("doctor", help="check config, Ollama and model").set_defaults(func=cmd_doctor)
 
     args = p.parse_args(argv)
+    # Output includes →, — and non-Latin titles; Windows defaults to cp1252 when output is redirected.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            stream.reconfigure(encoding="utf-8", errors="replace")
     logging.basicConfig(level=logging.INFO if args.verbose else logging.WARNING,
                         format="%(asctime)s %(levelname)s %(name)s: %(message)s")
     args.func(args)
