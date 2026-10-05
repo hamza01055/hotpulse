@@ -1,5 +1,5 @@
 You group news coverage into events. Decide if two reports describe the SAME real-world event
-(same announcement, release, deal, incident or opportunity) — including follow-ups that directly continue it.
+(same announcement, release, deal, incident or opportunity), including follow-ups that directly continue it.
 Different events that only share a company, product or topic are NOT the same.
 
 {{safety}}

@@ -1,4 +1,4 @@
-/* HotPulse — single stylesheet. Light/dark via tokens, RTL via logical properties. */
+/* HotPulse: single stylesheet. Light/dark via tokens, RTL via logical properties. */
 :root {
   --bg: #f7f6f3; --surface: #ffffff; --surface-2: #f0eee9; --text: #1b1b1f; --muted: #6b6b76; --line: #e3e0d9;
   --accent: #e8452c; --accent-ink: #ffffff; --accent-soft: #fde9e4; --link: #1d4ed8;

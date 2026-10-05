@@ -1,7 +1,7 @@
 """Group reports about the same real-world event, then rank events by heat.
 
 Heat is driven by *how many different sources* cover an event (weighted by source tier),
-not by how many articles one site publishes — the core idea of AIHOT, kept here.
+not by how many articles one site publishes. This is the core idea of AIHOT, kept here.
 """
 from __future__ import annotations
 
@@ -62,8 +62,8 @@ def cosine(u: list[float], v: list[float]) -> float:
 
 def ask_same_event(settings: Settings, llm, a: dict, b: dict) -> bool:
     system = render(settings.prompt("same_event"), safety=settings.prompt("_safety"))
-    user = ("<material>\nReport A: " + f"{a.get('title') or a.get('original_title')} — {(a.get('summary') or '')[:400]}"
-            "\nReport B: " + f"{b.get('title') or b.get('original_title')} — {(b.get('summary') or '')[:400]}\n</material>")
+    user = ("<material>\nReport A: " + f"{a.get('title') or a.get('original_title')}\n{(a.get('summary') or '')[:400]}"
+            "\nReport B: " + f"{b.get('title') or b.get('original_title')}\n{(b.get('summary') or '')[:400]}\n</material>")
     out = llm.chat_json(system, user, temperature=0.0, seed=13) or {}
     try:
         conf = float(out.get("confidence", 0))

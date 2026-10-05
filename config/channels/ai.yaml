@@ -46,4 +46,4 @@ sources:
   - { name: MIT Technology Review AI, url: "https://www.technologyreview.com/topic/artificial-intelligence/feed", tier: T2 }
   - { name: Ars Technica AI, url: "https://arstechnica.com/ai/feed/", tier: T2 }
   - { name: Hacker News (150+ points), url: "https://hnrss.org/frontpage?points=150", tier: T3 }
-  - { name: Google News — AI, url: "https://news.google.com/rss/search?q=artificial+intelligence+when:1d&hl=en-US&gl=US&ceid=US:en", tier: T3 }
+  - { name: Google News · AI, url: "https://news.google.com/rss/search?q=artificial+intelligence+when:1d&hl=en-US&gl=US&ceid=US:en", tier: T3 }

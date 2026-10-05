@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as m with context %}
-{% block title %}{{ ev.title }} — {{ s.name }}{% endblock %}
+{% block title %}{{ ev.title }} · {{ s.name }}{% endblock %}
 {% block content %}
 {% set lead = items[0] if items else none %}
 <section class="page-head">

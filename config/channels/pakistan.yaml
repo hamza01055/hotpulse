@@ -35,4 +35,4 @@ sources:
   - { name: Express Tribune Tech, url: "https://tribune.com.pk/feed/technology", tier: T2 }
   - { name: Profit by Pakistan Today, url: "https://profit.pakistantoday.com.pk/feed/", tier: T2, enabled: false }  # site has turned its RSS feed off
   - { name: Dawn Business, url: "https://www.dawn.com/feeds/business", tier: T2 }
-  - { name: Google News — Pakistan startups, url: "https://news.google.com/rss/search?q=Pakistan+startup+OR+fintech+OR+PTA+when:2d&hl=en-PK&gl=PK&ceid=PK:en", tier: T3 }
+  - { name: Google News · Pakistan startups, url: "https://news.google.com/rss/search?q=Pakistan+startup+OR+fintech+OR+PTA+when:2d&hl=en-PK&gl=PK&ceid=PK:en", tier: T3 }

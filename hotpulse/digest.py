@@ -8,7 +8,7 @@ from zoneinfo import ZoneInfo
 
 from .config import Settings, render
 from .db import jdumps, jloads, row_to_dict, session, utcnow
-from .text import sentences, truncate
+from .text import no_em_dash, sentences, truncate
 
 log = logging.getLogger("hotpulse.digest")
 
@@ -146,9 +146,9 @@ def build_digest(settings: Settings, llm, channel: str, kind: str = "daily", *, 
 
     local_end = end.astimezone(_tz(settings))
     if kind == "daily":
-        title = f"{ch.name} Daily — {local_end.strftime('%d %b %Y')}"
+        title = f"{ch.name} Daily · {local_end.strftime('%d %b %Y')}"
     else:
-        title = f"{ch.name} Weekly — {slug}"
+        title = f"{ch.name} Weekly · {slug}"
     body = {"lead": main[0] if main else None, "main": main[1:], "briefs": briefs, "sections": sections,
             "closing_soon": [_entry(r, []) for r in closing],
             "stats": {"selected": len(rows), "events": len(ranked),
@@ -187,7 +187,7 @@ def build_today_preview(settings: Settings, llm, channel: str) -> dict | None:
 
 
 # ---------------------------------------------------------------------------
-# Social post drafts (X + Threads) — to grow your accounts with your own site's content
+# Social post drafts (X + Threads), to grow your accounts with your own site's content
 # ---------------------------------------------------------------------------
 def template_posts(item: dict, hashtags: list[str]) -> dict:
     title = item["title"] or item["original_title"]
@@ -223,7 +223,7 @@ def make_social_posts(settings: Settings, llm, item_ids: list[int], lang: str | 
             user = f"<material>\nHeadline: {item['title']}\nSummary: {item['summary']}\nWhy it matters: {item['why_it_matters'] or ''}\n</material>"
             out = llm.chat_json(system, user, temperature=0.7, seed=21) or {}
             if out.get("x") and out.get("threads"):
-                posts = {"x": truncate(str(out["x"]), X_TEXT_LIMIT), "threads": str(out["threads"]).strip()[:480]}
+                posts = {"x": truncate(str(out["x"]), X_TEXT_LIMIT), "threads": no_em_dash(str(out["threads"]).strip())[:480]}
         posts = posts or template_posts(item, hashtags)
         with session(settings.db_path) as conn:
             for platform, text in posts.items():

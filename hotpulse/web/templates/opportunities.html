@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as m with context %}
-{% block title %}{{ t('closing_soon') }} — {{ s.name }}{% endblock %}
+{% block title %}{{ t('closing_soon') }} · {{ s.name }}{% endblock %}
 {% block content %}
 <section class="page-head">
   <h1>Open opportunities</h1>
@@ -22,8 +22,8 @@
     <td>{{ m.deadline_badge(it.deadline) }}</td>
     <td><a href="/item/{{ it.id }}"><strong>{{ m.ttl(it) }}</strong></a>
       {% if it.facts and it.facts.eligibility %}<div class="muted small">{{ it.facts.eligibility }}</div>{% endif %}</td>
-    <td>{{ (it.facts or {}).get('funding') or '—' }}{% if (it.facts or {}).get('open_to_pakistan') %} <span class="badge badge-pk">PK</span>{% endif %}</td>
-    <td>{{ (it.facts or {}).get('location') or '—' }}</td>
+    <td>{{ (it.facts or {}).get('funding') or '' }}{% if (it.facts or {}).get('open_to_pakistan') %} <span class="badge badge-pk">PK</span>{% endif %}</td>
+    <td>{{ (it.facts or {}).get('location') or '' }}</td>
   </tr>
   {% endfor %}
   </tbody>

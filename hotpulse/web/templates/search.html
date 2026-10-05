@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as m with context %}
-{% block title %}{{ t('search') }}{% if q %}: {{ q }}{% endif %} — {{ s.name }}{% endblock %}
+{% block title %}{{ t('search') }}{% if q %}: {{ q }}{% endif %} · {{ s.name }}{% endblock %}
 {% block content %}
 <section class="page-head">
   <h1>{{ t('search') }}</h1>

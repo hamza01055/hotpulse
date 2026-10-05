@@ -321,7 +321,7 @@ def analyze_pending(settings: Settings, llm, limit: int | None = None, fetcher=h
             stats["analyzed"] += 1
             stats["selected"] += upd.get("selected", 0)
             stats["blocked"] += 1 if upd.get("status") == "blocked" else 0
-        except Exception as exc:  # noqa: BLE001 — never let one item stop the run
+        except Exception as exc:  # noqa: BLE001 (never let one item stop the run)
             log.exception("analyze failed for item %s", item["id"])
             with session(settings.db_path) as conn:
                 conn.execute("UPDATE items SET attempts=attempts+1, error=?, status=CASE WHEN attempts>=2 "

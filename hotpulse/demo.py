@@ -25,7 +25,7 @@ STORIES: dict[str, list[list[tuple[str, str, str]]]] = {
           "Nimbus Labs has launched Nimbus-3, an open-weight model with 70 billion parameters. Early testers report strong "
           "results on coding tasks. The release includes an 8B variant and an Apache 2.0 licence, making it one of the "
           "largest permissively licensed reasoning models this year."),
-         ("Demo Dev Forum", "Nimbus-3 70B weights are out — first impressions",
+         ("Demo Dev Forum", "Nimbus-3 70B weights are out: first impressions",
           "Community members began testing Nimbus Labs' Nimbus-3 within hours of release. The 70B open-weight model runs on "
           "one 48 GB GPU with 4-bit quantisation, and several users report it handles multi-file refactors well.")],
         [("Demo Tech Daily", "Orbitly raises $120 million Series B to build AI agents for small businesses",
@@ -50,7 +50,7 @@ STORIES: dict[str, list[list[tuple[str, str, str]]]] = {
           "The fictional Aurora University offers 50 fully funded masters scholarships for international students, "
           "including applicants from Pakistan. The scholarship covers tuition, a monthly stipend and travel. "
           f"Eligibility: bachelor's degree with good grades and English proficiency. Deadline: {(date.today() + timedelta(days=6)).strftime('%B %d, %Y')}."),
-         ("Demo Opportunity Board", "Aurora Global Masters Scholarship (fully funded) — apply now",
+         ("Demo Opportunity Board", "Aurora Global Masters Scholarship (fully funded): apply now",
           "Aurora University's fully funded masters scholarship is open to students from all countries. It includes tuition, "
           f"stipend and airfare. Application deadline: {(date.today() + timedelta(days=6)).strftime('%B %d, %Y')}.")],
         [("Demo Remote Jobs", "Junior Python Developer at Brightloop (remote, worldwide)",
@@ -61,7 +61,7 @@ STORIES: dict[str, list[list[tuple[str, str, str]]]] = {
           "A fictional foundation invites young innovators aged 18-30 from developing countries to a 6-month online "
           "fellowship with mentorship and a $5,000 project grant. Pakistan is among eligible countries. "
           f"Deadline: {(date.today() + timedelta(days=35)).isoformat()}.")],
-        [("Demo Scholarships Hub", "Win a free laptop — just pay a small registration fee",
+        [("Demo Scholarships Hub", "Win a free laptop, just pay a small registration fee",
           "Pay to apply for a prize draw. Registration fee required.")],
     ],
     "pakistan": [

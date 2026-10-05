@@ -1,3 +1,4 @@
+import html
 import xml.etree.ElementTree as ET
 
 import pytest
@@ -15,7 +16,7 @@ def client(demo_settings):
     return TestClient(create_app(demo_settings))
 
 
-PAGES = ["/", "/c/ai", "/c/ai?view=all", "/c/opportunities?pk=1", "/c/pakistan?cat=startups", "/hot", "/hot?days=7",
+PAGES = ["/", "/c/ai", "/c/ai?view=all", "/c/ai?view=picks", "/c/opportunities?pk=1", "/c/pakistan?cat=startups", "/hot", "/hot?days=7",
          "/opportunities", "/opportunities?within=7&pk=1", "/item/1", "/event/1", "/briefings", "/search?q=nimbus",
          "/saved", "/about", "/developers", "/?lang=ur", "/c/ai?lang=ar", "/briefings/ai/latest"]
 
@@ -31,6 +32,16 @@ def test_rtl_and_language_cookie(client):
     r = client.get("/?lang=ur")
     assert 'dir="rtl"' in r.text and r.cookies.get("lang") == "ur"
     assert 'dir="rtl"' in client.get("/").text, "cookie remembers the language"
+
+
+def test_channel_defaults_to_all_updates(client, demo_settings):
+    with session(demo_settings.db_path) as conn:
+        row = conn.execute("SELECT channel, title FROM items WHERE status='analyzed' AND archived=0 AND selected=0 "
+                           "LIMIT 1").fetchone()
+    assert row, "demo data should include an analysed item that wasn't picked"
+    title = html.escape(row["title"])
+    assert title in client.get(f"/c/{row['channel']}").text
+    assert title not in client.get(f"/c/{row['channel']}?view=picks").text
 
 
 def test_404(client):

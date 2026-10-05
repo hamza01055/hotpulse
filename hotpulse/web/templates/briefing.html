@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}{{ d.title }} — {{ s.name }}{% endblock %}
+{% block title %}{{ d.title }} · {{ s.name }}{% endblock %}
 {% block description %}{{ d.intro }}{% endblock %}
 {% block content %}
 {% macro et(e, key) -%}{% set x = tr.get(e.item_id) %}{{ x[key] if x and x[key] else e[key] }}{%- endmacro %}

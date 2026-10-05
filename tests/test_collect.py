@@ -2,7 +2,7 @@ import json
 from datetime import datetime, timedelta, timezone
 from email.utils import format_datetime
 
-from hotpulse.collect import collect, parse_remoteok, parse_rss
+from hotpulse.collect import collect, extract_main_text, parse_remoteok, parse_rss
 from hotpulse.db import session
 from conftest import offline_fetcher, rss
 
@@ -69,3 +69,11 @@ def test_parse_remoteok():
     assert len(out) == 1
     assert out[0]["title"] == "Backend Engineer at Acme"
     assert "$50,000" in out[0]["content"] and "Join us" in out[0]["content"]
+
+
+def test_main_text_ignores_tags_that_start_with_p():
+    page = ('<nav><svg><path d="M0 0"></path></svg> Home Latest Tech AI Startups Mobile Business Auto Education More'
+            '<picture><img src="a.jpg"></picture></nav>'
+            '<p class="lead">The regulator asked parents to watch how children use phones, tablets and laptops.</p>')
+    text = extract_main_text(page)
+    assert text.startswith("The regulator") and "Startups" not in text

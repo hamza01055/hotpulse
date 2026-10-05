@@ -1,5 +1,5 @@
 """Interface strings. News text itself is translated by the model; this only covers buttons and labels.
-Add a language by adding a dict below — missing keys fall back to English."""
+Add a language by adding a dict below; missing keys fall back to English."""
 
 UI: dict[str, dict[str, str]] = {
     "en": {

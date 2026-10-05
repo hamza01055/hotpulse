@@ -1,7 +1,8 @@
 from datetime import date
 
 from hotpulse.llm import extract_json
-from hotpulse.text import canonical_url, find_dates, guess_deadline, keyword_hits, normalise_deadline, title_hash
+from hotpulse.text import (canonical_url, clean_html, find_dates, guess_deadline, keyword_hits, no_em_dash,
+                           normalise_deadline, title_hash, truncate)
 
 
 def test_canonical_url_strips_tracking_and_www():
@@ -40,3 +41,13 @@ def test_extract_json_variants():
     assert extract_json('Sure! Here you go: {"score": 80, "reason": "x {y}"} thanks') == {"score": 80, "reason": "x {y}"}
     assert extract_json("no json") is None
     assert extract_json("[1, 2]") is None
+
+
+def test_no_em_dashes_in_site_text():
+    dash = "\u2014"
+    assert no_em_dash(f"Nimbus-3 is out {dash} first impressions") == "Nimbus-3 is out, first impressions"
+    assert no_em_dash(f"Infinite Potential{dash}Insights") == "Infinite Potential, Insights"
+    assert no_em_dash(f"{dash} Jane Doe\nGood point {dash}\nNext") == "Jane Doe\nGood point\nNext"
+    assert no_em_dash("2026-10-05, no dashes here") == "2026-10-05, no dashes here"
+    assert dash not in clean_html(f"<p>Scholarship {dash} apply now</p>")
+    assert truncate(f"A {dash} B", 50) == "A, B"

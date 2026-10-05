@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Sources — {{ s.name }}{% endblock %}
+{% block title %}Sources · {{ s.name }}{% endblock %}
 {% block content %}
 <section class="page-head"><h1>Sources</h1>{% include "admin/_nav.html" %}</section>
 <section class="side-box">
@@ -22,7 +22,7 @@
     <td>{{ r.channel }}</td>
     <td><strong>{{ r.name }}</strong><div class="muted url-cell">{{ r.url }}</div></td>
     <td>{{ r.tier }}</td><td>{{ r.items_total }}</td>
-    <td>{{ r.last_ok_at|timeago if r.last_ok_at else '—' }}</td>
+    <td>{{ r.last_ok_at|timeago if r.last_ok_at else 'never' }}</td>
     <td>{% if not r.enabled %}<span class="badge">off</span>{% elif r.fail_count %}<span class="badge badge-urgent" title="{{ r.last_error }}">failing ×{{ r.fail_count }}</span>{% elif r.last_ok_at %}<span class="badge badge-ok">ok</span>{% else %}<span class="badge">new</span>{% endif %}</td>
     <td class="row-actions">
       <form method="post" action="/admin/sources/{{ r.id }}/toggle"><button class="link-btn">{{ 'Disable' if r.enabled else 'Enable' }}</button></form>

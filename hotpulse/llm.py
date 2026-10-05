@@ -165,7 +165,7 @@ def ollama_status(url: str, model: str, force: bool = False) -> dict:
             names = [m.get("name", "") for m in r.json().get("models", [])]
             wanted = model if ":" in model else f"{model}:latest"
             ok = any(n == model or n == wanted for n in names)
-            detail = "ready" if ok else f"model '{model}' not pulled — run: ollama pull {model}"
+            detail = "ready" if ok else f"model '{model}' not pulled; run: ollama pull {model}"
             _status.update(ok=ok, detail=detail, models=names)
         except (httpx.HTTPError, ValueError) as exc:
             _status.update(ok=False, detail=f"Ollama not reachable at {url} ({exc.__class__.__name__})", models=[])

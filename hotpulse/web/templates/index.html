@@ -47,7 +47,7 @@
       <h2>{{ t('daily') }}</h2>
       <ul class="plain-list">
         {% for key, c in channels.items() %}{% set d = dailies[key] %}
-        <li>{% if d %}<a href="/briefings/{{ key }}/{{ d.kind }}/{{ d.slug }}">{{ d.title }}</a>{% else %}<span class="muted">{{ c.name }} — {{ t('no_items') }}</span>{% endif %}</li>
+        <li>{% if d %}<a href="/briefings/{{ key }}/{{ d.kind }}/{{ d.slug }}">{{ d.title }}</a>{% else %}<span class="muted">{{ c.name }} · {{ t('no_items') }}</span>{% endif %}</li>
         {% endfor %}
       </ul>
     </section>

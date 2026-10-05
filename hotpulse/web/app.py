@@ -61,7 +61,7 @@ def register_pages(app: FastAPI) -> None:
                                               "counts": counts, "dailies": dailies})
 
     @app.get("/c/{channel}", response_class=HTMLResponse)
-    def channel_page(request: Request, channel: str, view: str = "picks", cat: str | None = None, page: int = 1,
+    def channel_page(request: Request, channel: str, view: str = "all", cat: str | None = None, page: int = 1,
                      pk: int = 0):
         s = settings_of(request)
         ch = s.channels.get(channel)

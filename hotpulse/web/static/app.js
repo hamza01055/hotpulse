@@ -1,4 +1,4 @@
-// HotPulse — small progressive enhancements. The site works without JavaScript.
+// HotPulse: small progressive enhancements. The site works without JavaScript.
 (function () {
   "use strict";
   var HP = window.HP || { i18n: {} };

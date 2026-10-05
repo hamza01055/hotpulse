@@ -106,7 +106,7 @@ def cmd_doctor(args) -> None:
     print(f"Channels: {', '.join(f'{k} ({len(c.sources)} sources)' for k, c in s.channels.items())}")
     print(f"LLM mode: {s.llm_mode}")
     st = ollama_status(s.ollama_url, s.ollama_model, force=True)
-    print(f"Ollama:   {'OK' if st['ok'] else 'NOT READY'} — {st['detail']}")
+    print(f"Ollama:   {'OK' if st['ok'] else 'NOT READY'} · {st['detail']}")
     if st.get("models"):
         print(f"          installed models: {', '.join(st['models'])}")
     llm = get_llm(s)
@@ -157,7 +157,7 @@ def main(argv: list[str] | None = None) -> None:
     sub.add_parser("doctor", help="check config, Ollama and model").set_defaults(func=cmd_doctor)
 
     args = p.parse_args(argv)
-    # Output includes →, — and non-Latin titles; Windows defaults to cp1252 when output is redirected.
+    # Output includes → and non-Latin titles; Windows defaults to cp1252 when output is redirected.
     for stream in (sys.stdout, sys.stderr):
         if hasattr(stream, "reconfigure"):
             stream.reconfigure(encoding="utf-8", errors="replace")

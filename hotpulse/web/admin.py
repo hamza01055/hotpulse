@@ -88,7 +88,7 @@ def run_now(request: Request, collect_sources: str = Form("1")):
     _bg_state["running"] = True
     threading.Thread(target=_run_bg, args=(settings_of(request),),
                      kwargs={"collect_sources": collect_sources == "1"}, daemon=True).start()
-    return _back(msg="Pipeline started — refresh in a minute")
+    return _back(msg="Pipeline started. Refresh in a minute.")
 
 
 @router.post("/digest")

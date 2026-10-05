@@ -181,7 +181,7 @@ def _item_entries(items: list[dict], base: str) -> list[dict]:
             desc += f"\n\nWhy it matters: {i['why_it_matters']}"
         if i.get("deadline"):
             desc += f"\n\nDeadline: {i['deadline']}"
-        desc += f"\n\nSource: {i.get('source') or ''} — {i['url']}"
+        desc += f"\n\nSource: {i.get('source') or ''} ({i['url']})"
         out.append({"title": i.get("title") or i["original_title"], "link": f"{base}/item/{i['id']}",
                     "date": i.get("selected_at") or i.get("discovered_at"), "description": desc,
                     "category": i.get("category")})
@@ -204,7 +204,7 @@ def feed_channel(request: Request, channel: str):
         raise HTTPException(404)
     with db(request) as conn:
         items = Q.latest(conn, channel, limit=50)
-    return _rss(f"{s.name} — {ch.name}", f"{s.site_url}/c/{channel}", ch.description, _item_entries(items, s.site_url))
+    return _rss(f"{s.name} · {ch.name}", f"{s.site_url}/c/{channel}", ch.description, _item_entries(items, s.site_url))
 
 
 @router.get("/feed/{channel}/daily.xml", include_in_schema=False)
@@ -217,7 +217,7 @@ def feed_daily(request: Request, channel: str):
         rows = Q.digests(conn, channel, "daily", 20)
     entries = [{"title": d["title"], "link": f"{s.site_url}/briefings/{channel}/{d['kind']}/{d['slug']}",
                 "date": d["period_end"], "description": d["intro"] or ""} for d in rows]
-    return _rss(f"{s.name} — {ch.name} daily", f"{s.site_url}/briefings?channel={channel}", ch.description, entries)
+    return _rss(f"{s.name} · {ch.name} daily", f"{s.site_url}/briefings?channel={channel}", ch.description, entries)
 
 
 # ---------------------------------------------------------------------------
@@ -236,7 +236,7 @@ def llms_txt(request: Request):
              f"- [MCP server]({s.site_url}/mcp): JSON-RPC over HTTP (tools: latest_news, search_news, hot_events, daily_briefing, open_opportunities)",
              f"- [OpenAPI]({s.site_url}/api/openapi.json)", "", "## Channels", ""]
     for c in s.channels.values():
-        lines.append(f"- [{c.name}]({s.site_url}/c/{c.key}): {c.description} — RSS: {s.site_url}/feed/{c.key}.xml")
+        lines.append(f"- [{c.name}]({s.site_url}/c/{c.key}): {c.description} RSS: {s.site_url}/feed/{c.key}.xml")
     return "\n".join(lines) + "\n"
 
 
@@ -261,7 +261,7 @@ def sitemap(request: Request):
 
 
 # ---------------------------------------------------------------------------
-# MCP (Model Context Protocol) — lets AI agents use the site as a tool
+# MCP (Model Context Protocol): lets AI agents use the site as a tool
 # ---------------------------------------------------------------------------
 MCP_TOOLS = [
     {"name": "latest_news", "description": "Latest selected stories. Optional channel filter.",
@@ -318,7 +318,7 @@ def _mcp_call(request: Request, name: str, args: dict) -> tuple[str, dict]:
         if name == "hot_events":
             days = max(1, min(int(args.get("days", 3)), 14))
             events = [_public_event(e, base) for e in Q.hot_events(conn, channel, limit=min(limit, 30), days=days)]
-            text = "\n".join(f"- **{e['title']}** — heat {e['heat']}, {e['source_count']} sources\n  {e['page']}"
+            text = "\n".join(f"- **{e['title']}** (heat {e['heat']}, {e['source_count']} sources)\n  {e['page']}"
                              for e in events) or "No hot events."
             return text, {"events": events}
         if name == "daily_briefing":
@@ -330,7 +330,7 @@ def _mcp_call(request: Request, name: str, args: dict) -> tuple[str, dict]:
             body = d["body"]
             entries = ([body["lead"]] if body.get("lead") else []) + body.get("main", [])
             text = f"# {d['title']}\n\n{d.get('intro') or ''}\n\n" + "\n".join(
-                f"{n}. **{e['title']}** — {truncate(e.get('summary') or '', 240)} ({e.get('source')})"
+                f"{n}. **{e['title']}**: {truncate(e.get('summary') or '', 240)} ({e.get('source')})"
                 for n, e in enumerate(entries, 1))
             return text, {"digest": d}
         if name == "open_opportunities":

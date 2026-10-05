@@ -85,26 +85,20 @@ cp .env.example .env
 Copy-Item .env.example .env
 ```
 
-Start with fictional sample data:
+Check which sources your network can reach, then start the site:
 
 ```bash
-hotpulse demo
-hotpulse serve
-```
-
-Open **http://127.0.0.1:8000**.
-
-### Switch to real news
-
-Stop the server, then run:
-
-```bash
-hotpulse demo --clear
 hotpulse sources --test
 hotpulse serve
 ```
 
-With the default schedule, HotPulse collects news every 30 minutes while the server is running.
+Open **http://127.0.0.1:8000**. HotPulse collects real news from every source a few seconds after it starts, then every 30 minutes while the server is running.
+
+> **Windows:** if `hotpulse` is blocked by Smart App Control ("An Application Control policy has blocked this file"), run the same commands as `python -m hotpulse.cli serve`, `python -m hotpulse.cli sources --test`, and so on.
+
+### Try it offline with sample data (optional)
+
+`hotpulse demo` loads fictional stories so you can explore the site without a network. Remove them before going live with `hotpulse demo --clear`.
 
 ## Enable local AI
 
@@ -288,7 +282,7 @@ pip install -e ".[dev]"
 pytest -q
 ```
 
-The test suite includes **56 automated tests**, using fake feeds and a fake Ollama server without live network access.
+The test suite includes **60 automated tests**, using fake feeds and a fake Ollama server without live network access.
 
 The stack uses Python, FastAPI, SQLite, Jinja templates, CSS and JavaScript, with no frontend build step.
 

@@ -10,7 +10,7 @@ thresholds: { T1: 50, T2: 58, T3: 64 }
 rubric: |
   Readers are students and early-career professionals, many in Pakistan and other developing countries.
   High value: fully or partially funded scholarships, fellowships, paid internships, remote jobs open
-  internationally, competitions with prizes, grants — with a clear deadline, eligibility and official link.
+  internationally, competitions with prizes, grants, with a clear deadline, eligibility and official link.
   Extra value if open to Pakistani / international applicants or fully funded.
   Low value: expired deadlines, pay-to-apply schemes, vague "opportunities" with no details,
   roles restricted to one country unless that country is Pakistan, spam or MLM.
@@ -35,4 +35,4 @@ sources:
   - { name: Opportunities Corners, url: "https://www.opportunitiescorners.com/feed/", tier: T2 }
   - { name: We Work Remotely, url: "https://weworkremotely.com/remote-jobs.rss", tier: T1 }
   - { name: Remote OK, url: "https://remoteok.com/api", kind: remoteok, tier: T1 }
-  - { name: Google News — Scholarships for Pakistanis, url: "https://news.google.com/rss/search?q=scholarship+Pakistani+students+when:7d&hl=en-PK&gl=PK&ceid=PK:en", tier: T3 }
+  - { name: Google News · Scholarships for Pakistanis, url: "https://news.google.com/rss/search?q=scholarship+Pakistani+students+when:7d&hl=en-PK&gl=PK&ceid=PK:en", tier: T3 }

@@ -5,6 +5,7 @@ Rules:
 - Headline: max 14 words, says WHO did WHAT. No clickbait, no emojis, no ALL CAPS.
 - Summary: 2-4 sentences, answer first. Include concrete numbers, names and dates that appear in the material.
 - why_it_matters: one sentence on why a reader should care.
+- Do not use em dashes; use commas, colons or full stops instead.
 - Never invent facts, numbers, dates or links that are not in the material. If unknown, use null.
 - category must be one of: {{category_keys}}
 - tags: 2-5 short lowercase topic tags.

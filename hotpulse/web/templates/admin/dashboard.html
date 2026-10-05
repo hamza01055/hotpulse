@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Dashboard — {{ s.name }}{% endblock %}
+{% block title %}Dashboard · {{ s.name }}{% endblock %}
 {% block content %}
 <section class="page-head"><h1>Dashboard</h1>{% include "admin/_nav.html" %}</section>
 <div class="kpis">
@@ -16,7 +16,7 @@
 <section class="side-box">
   <h2>AI model</h2>
   <p><span class="badge {{ 'badge-ok' if llm.ok else 'badge-urgent' }}">{{ 'ready' if llm.ok else 'not available' }}</span>
-     <code>{{ s.ollama_model }}</code> @ <code>{{ s.ollama_url }}</code> — {{ llm.detail }}</p>
+     <code>{{ s.ollama_model }}</code> @ <code>{{ s.ollama_url }}</code> · {{ llm.detail }}</p>
   {% if not llm.ok %}<p class="muted small">Running in heuristic mode. Install <a href="https://ollama.com/download" rel="noopener">Ollama</a>, then run <code>ollama pull {{ s.ollama_model }}</code>.</p>{% endif %}
 </section>
 
@@ -34,7 +34,7 @@
 {% if failing %}
 <section class="side-box">
   <h2>Failing sources</h2>
-  <ul class="plain-list small">{% for f in failing %}<li><strong>{{ f.name }}</strong> ({{ f.channel }}) — {{ f.fail_count }}× — <code>{{ f.last_error }}</code></li>{% endfor %}</ul>
+  <ul class="plain-list small">{% for f in failing %}<li><strong>{{ f.name }}</strong> ({{ f.channel }}) · {{ f.fail_count }}× · <code>{{ f.last_error }}</code></li>{% endfor %}</ul>
 </section>
 {% endif %}
 

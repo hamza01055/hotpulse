@@ -20,6 +20,8 @@ says said say according report reports update today week year years per vs amid"
 _TAG_RE = re.compile(r"<[^>]+>")
 _WS_RE = re.compile(r"\s+")
 _WORD_RE = re.compile(r"[\w][\w\-\.']*", re.UNICODE)
+_EM_DASH_EDGE_RE = re.compile(r"(?m)^[^\S\n]*\u2014+[^\S\n]*|[^\S\n]*\u2014+[^\S\n]*$")
+_EM_DASH_RE = re.compile(r"[^\S\n]*\u2014+[^\S\n]*")
 
 
 def canonical_url(url: str) -> str:
@@ -48,7 +50,15 @@ def clean_html(raw: str | None) -> str:
     text = html.unescape(text)
     text = re.sub(r"[ \t\r\f\v]+", " ", text)
     text = re.sub(r"\n\s*\n+", "\n\n", text)
-    return text.strip()
+    return no_em_dash(text.strip())
+
+
+def no_em_dash(text: str) -> str:
+    """House style: the site shows no em dashes. A spaced or unspaced em dash between words becomes ', '."""
+    if "\u2014" not in text:
+        return text
+    text = _EM_DASH_EDGE_RE.sub("", text)
+    return _EM_DASH_RE.sub(", ", text)
 
 
 def squash(text: str | None) -> str:
@@ -56,7 +66,8 @@ def squash(text: str | None) -> str:
 
 
 def truncate(text: str | None, limit: int) -> str:
-    text = squash(text)
+    """One line, at most `limit` chars, no em dashes (used for everything the model writes)."""
+    text = no_em_dash(squash(text))
     if len(text) <= limit:
         return text
     cut = text[:limit].rsplit(" ", 1)[0]

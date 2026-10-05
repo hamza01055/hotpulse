@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% block title %}Items — {{ s.name }}{% endblock %}
+{% block title %}Items · {{ s.name }}{% endblock %}
 {% block content %}
 <section class="page-head"><h1>Items</h1>{% include "admin/_nav.html" %}
   <div class="filters">
@@ -15,7 +15,7 @@
   <tbody>
   {% for r in rows %}
   <tr class="{% if r.selected %}is-pick{% endif %}">
-    <td title="{{ r.score_reason or '' }}"><strong>{{ r.score if r.score is not none else '—' }}</strong>{% if r.score1 is not none %}<div class="muted">{{ r.score1 }}/{{ r.score2 }} · {{ r.tier }}</div>{% endif %}</td>
+    <td title="{{ r.score_reason or '' }}"><strong>{{ r.score if r.score is not none else 'n/a' }}</strong>{% if r.score1 is not none %}<div class="muted">{{ r.score1 }}/{{ r.score2 }} · {{ r.tier }}</div>{% endif %}</td>
     <td><a href="/item/{{ r.id }}">{{ r.title or r.original_title }}</a>
       <div class="muted">{{ r.channel }} · {{ r.source }} · {{ r.discovered_at|timeago }} · {{ r.analyzed_by or '' }}{% if r.archived %} · archived{% endif %}</div>
       {% if r.score_reason %}<div class="muted">{{ r.score_reason }}</div>{% endif %}{% if r.error %}<div class="err">{{ r.error }}</div>{% endif %}</td>

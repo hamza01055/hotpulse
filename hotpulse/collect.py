@@ -151,7 +151,7 @@ def fetch_source(source: dict, fetcher: Fetcher) -> tuple[dict, list[dict] | Non
         raw = fetcher(source["url"])
         parser = PARSERS.get(source["kind"], parse_rss)
         return source, parser(raw), None
-    except Exception as exc:  # noqa: BLE001 — one broken source must never stop the others
+    except Exception as exc:  # noqa: BLE001 (one broken source must never stop the others)
         msg = f"{exc.__class__.__name__}: {str(exc)[:200]}"
         return source, None, msg
 
@@ -203,7 +203,7 @@ def extract_main_text(html: str) -> str:
             return text
     except ImportError:
         pass
-    paras = re.findall(r"(?is)<p[^>]*>(.*?)</p>", html)
+    paras = re.findall(r"(?is)<p(?:\s[^>]*)?>(.*?)</p>", html)  # not <path>, <picture>, ...
     return "\n\n".join(p for p in (clean_html(x) for x in paras) if len(p) > 60)
 
 

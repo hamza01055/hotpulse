@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% import "macros.html" as m with context %}
-{% block title %}{{ m.ttl(it) }} — {{ s.name }}{% endblock %}
+{% block title %}{{ m.ttl(it) }} · {{ s.name }}{% endblock %}
 {% block description %}{{ m.smry(it)|truncate(180) }}{% endblock %}
 {% block content %}
 <article class="article" data-item="{{ it.id }}">
