@@ -8,6 +8,7 @@ Run it locally with no paid AI API required. Read your briefings on the web or a
 
 ## See it in action
 
+
 ![HotPulse dashboard](docs/screenshots/home.png)
 
 <table>
